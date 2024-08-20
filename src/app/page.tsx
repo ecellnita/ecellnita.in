@@ -8,6 +8,7 @@ import Lights from '~/components/navbar/Lights';
 
 import CubesBackground from '~/assets/cube.svg';
 import StripsBackground from '~/assets/strips.svg';
+import Speakers from '~/sections/speakers';
 
 const Home = () => {
   return (
@@ -33,6 +34,7 @@ const Home = () => {
         <Hero />
       </div>
       <About />
+      <Speakers/>
       <Contact />
     </div>
   );
