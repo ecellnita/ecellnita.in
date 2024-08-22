@@ -9,6 +9,7 @@ import Lights from '~/components/navbar/Lights';
 import CubesBackground from '~/assets/cube.svg';
 import StripsBackground from '~/assets/strips.svg';
 import Speakers from '~/sections/speakers';
+import AboutUs from '~/sections/aboutus';
 
 const Home = () => {
   return (
@@ -24,7 +25,12 @@ const Home = () => {
         </div>
       </div>
       <div className='relative min-h-screen overflow-y-hidden text-center sm:h-screen'>
-        <div className='absolute top-0 overflow-y-hidden'>
+        <div className='absolute top-0 overflow-y-hidden' 
+          style={{
+            backgroundImage:
+              'url(/photos/background/hero_bg.jpg)',
+          }}
+        >
           <Image
             src={CubesBackground as unknown as string}
             alt='Cubes Background'
@@ -33,6 +39,7 @@ const Home = () => {
         </div>
         <Hero />
       </div>
+      <AboutUs/>
       <About />
       <Speakers/>
       <Contact />
