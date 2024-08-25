@@ -10,6 +10,9 @@ import CubesBackground from '~/assets/cube.svg';
 import StripsBackground from '~/assets/strips.svg';
 import Speakers from '~/sections/speakers';
 import AboutUs from '~/sections/aboutus';
+import ImageSlideShow from '~/sections/slideshow';
+
+
 
 const Home = () => {
   return (
@@ -29,6 +32,8 @@ const Home = () => {
           style={{
             backgroundImage:
               'url(/photos/background/hero_bg.jpg)',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat'  
           }}
         >
           <Image
@@ -42,6 +47,8 @@ const Home = () => {
       <AboutUs/>
       <About />
       <Speakers/>
+
+      <ImageSlideShow/>
       <Contact />
     </div>
   );

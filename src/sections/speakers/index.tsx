@@ -55,10 +55,10 @@ const Speakers = () => {
         <p className='mx-auto max-w-sm px-2 text-center text-xs sm:text-base md:text-lg lg:max-w-4xl'>
           Explore the impactful speakers who have imparted their wisdom and insights at E-Cell events, fueling the entrepreneurial spirit.
         </p>
-        <div className='flex justify-between items-center w-[80%] mt-10'>
+        <div className='flex flex-col md:flex-row justify-between items-center w-full md:w-[80%] mt-10'>
             {
               allSpeakers.map((speaker, i)=>{
-                return <div key={i} className='w-[17%] h-[35svh] rounded-md flex flex-col justify-center items-center p-4 bg-[#34245c] cursor-pointer transition-all' 
+                return <div key={i} className='md:w-[17%] w-[60%] my-4 h-[35svh] rounded-md flex flex-col justify-center items-center p-4 bg-[#34245c] cursor-pointer transition-all' 
                         style={{
                           backgroundImage: hoveredElement.name === speaker.name ? `url(/photos/speakers/${speaker.id}.jpg)` : '',
                           backgroundSize: 'cover',
