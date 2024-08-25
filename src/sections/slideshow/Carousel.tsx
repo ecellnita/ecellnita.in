@@ -1,15 +1,17 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactNode } from 'react'
 
 
 interface CarouselProps {
-    children: string[]; // or ReactNode if it's a single child
+    children: ReactNode[];
     autoSlide?: boolean;
     autoSlideInterval?: number;
 }
 
 const Carousel: React.FC<CarouselProps> = ({ children: slides, autoSlide = false, autoSlideInterval = 3000 }) => {
-    const [curr, setCurr] = useState(0)
+    const [curr, setCurr] = useState(0);
+
+    if(!slides) return;
 
     const prev = () => setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1))
 
