@@ -1,9 +1,14 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-// import { ChevronLeft, ChevronRight } from "react-feather"
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const Carousel = ({ children: slides, autoSlide = false, autoSlideInterval = 3000 }) => {
+
+interface CarouselProps {
+    children: string[]; // or ReactNode if it's a single child
+    autoSlide?: boolean;
+    autoSlideInterval?: number;
+}
+
+const Carousel: React.FC<CarouselProps> = ({ children: slides, autoSlide = false, autoSlideInterval = 3000 }) => {
     const [curr, setCurr] = useState(0)
 
     const prev = () => setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1))

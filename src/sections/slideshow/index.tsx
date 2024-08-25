@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Carousel from './Carousel';
 
-const slides = [
+const slides: string[] = [
     "/photos/events/1.jpg",
     "/photos/events/2.jpg",
     "/photos/events/3.jpg",
