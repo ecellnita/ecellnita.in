@@ -1,9 +1,5 @@
 import React from 'react';
 
-import Image from 'next/image';
-
-import Buildings from '~/assets/buildings.svg';
-
 const Hero = () => {
   return (
     <section className='relative h-full w-full pt-28' id='hero'>

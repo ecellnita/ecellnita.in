@@ -1,8 +1,6 @@
 'use client';
 
 import React from 'react';
-
-import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
 import { useScrollbar } from '@14islands/r3f-scroll-rig';

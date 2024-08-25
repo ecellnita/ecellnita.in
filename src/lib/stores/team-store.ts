@@ -13,7 +13,7 @@ interface Actions {
   setMembers: (members: MemberProps[]) => void;
 }
 
-export const useTeamStore = create<State & Actions>((set, get) => ({
+export const useTeamStore = create<State & Actions>((set) => ({
   activeTeam: 'all',
   members,
   setActiveTeam: (team) => {
