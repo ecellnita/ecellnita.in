@@ -38,7 +38,7 @@ const ImageSlideShow = () => {
         <div className='flex justify-between items-center w-full mt-10'>
             <Carousel autoSlide={true}>
                 {[...slides.map((s, i) => (
-                    <img src={s} key={i} className='w-screen' />
+                    <Image key={i} src={s} width={1200} height={1000} alt='gallery' />
                 ))]}
             </Carousel>
         </div>
