@@ -10,6 +10,7 @@ function page() {
                 </div>
                 <div>
                   <h2 className='text-white font-semibold text-3xl'>PS-2</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, doloribus? Repellat similique aut quos tenetur libero ea eius labore praesentium quam officia ab architecto impedit eos error repudiandae eum, sed doloremque. Animi tempora ex non.</p>
                 </div>
             </div>
         </div>
