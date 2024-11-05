@@ -8,17 +8,17 @@ function page() {
             <div className="relative flex justify-center items-center flex-col py-16 bg-cover bg-center overflow-hidden bg-[#0D0628] bg-[url('/photos/ieif/ieif-bg.png')]">
                 <div className='mt-14 w-[85%] flex flex-col justify-center items-center'>
                   <div className='flex flex-col justify-center items-center'>
-                    <h1 className='text-6xl font-bold text-white'>Open Innovation Challenge</h1>
+                    <h1 className='text-6xl font-bold text-white'>Innovation for Clean Homes and Cities</h1>
 
                     {/* PS-1 */}
                     <div className='mt-14 mb-7'>
                       <div className='flex flex-col justify-between items-start my-6 w-[90%]'>
                         <h3 className='font-bold text-2xl text-white'>Problem statement</h3>
-                        <p className='text-lg my-2'>If you could address a significant real-world problem, what innovative solution would you develop, and in what focus area?</p>
+                        <p className='text-lg my-2'>What strategies can promote cleaner, healthier, and eco-friendlier urban and residential environments?</p>
                       </div>
                       <div className='flex flex-col justify-between items-start my-6 w-[90%]'>
                         <h3 className='font-bold text-2xl text-white'>Expected Outcome</h3>
-                        <p className='text-lg my-2'>Participants are expected to present a well-defined solution addressing an issue in areas like sustainability, education, or healthcare. Outputs should include a scalable model or framework ready for expert evaluation, demonstrating the potential for meaningful real-world impact.</p>
+                        <p className='text-lg my-2'>Participants should propose innovative solutions focused on waste reduction, pollution control, and sustainable urban planning. Expected outputs include actionable ideas or models that illustrate how these solutions can contribute to creating greener, cleaner communities.</p>
                       </div>
                     </div>
 

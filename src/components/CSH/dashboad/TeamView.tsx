@@ -1,17 +1,17 @@
 import { Users } from 'lucide-react'
 import React from 'react'
 
-function TeamView() {
+function TeamView({ teamDetails }) {
   return (
     <div className='w-[85%] p-8 flex flex-col mt-20'>
         <div className='flex justify-between items-center bg-[#0c0c29] p-8 rounded-xl'>
             <div>
-                <h1 className='text-4xl text-white font-bold'>Team: Team XYZ</h1>
-                <p className='mt-4'>Team Leader: John Doe</p>
+                <h1 className='text-4xl text-white font-bold'>Team: {teamDetails && teamDetails.teamName}</h1>
+                <p className='mt-4'>Team Leader: {teamDetails && teamDetails.leader.Name}</p>
             </div>
             <div className='flex flex-col justify-between items-center'>
                 <span className='flex justify-between items-center'>
-                    <span className='text-xl mr-4'>4</span>
+                    <span className='text-xl mr-4'>{teamDetails && teamDetails.members.length}</span>
                     <Users />
                 </span>
                 <span className='mt-4'>

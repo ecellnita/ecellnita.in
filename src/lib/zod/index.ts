@@ -19,7 +19,7 @@ const TeamMemberSchema = z.object({
 		.refine((value) => emailRegex.test(value), {
 			message: 'Invalid email format',
 		}),
-	phoneNumber: z
+	contact: z
 		.string({
 			required_error: 'Phone number is required',
 		})
@@ -29,7 +29,10 @@ const TeamMemberSchema = z.object({
 });
 
 const TeamLeaderSchema = TeamMemberSchema.extend({
-	isLeader: z.literal(true),
+	passwordHash: z.string({
+		required_error: 'Team password is required',
+	})
+	.min(8, 'Password must be 8 characters long')
 });
 
 export const TeamSchema = z.object({
@@ -38,8 +41,8 @@ export const TeamSchema = z.object({
 			required_error: 'Team name is required',
 		})
 		.max(50, { message: 'Team Name must be atmost 50 characters long' }),
-	teamLeader: TeamLeaderSchema,
-	teamMembers: z
+	leader: TeamLeaderSchema,
+	members: z
 		.array(TeamMemberSchema)
 		.refine((data) => data.length >= 2 && data.length <= 4, {
 			message:
@@ -48,7 +51,7 @@ export const TeamSchema = z.object({
 });
 
 export const LoginTeamSchema = z.object({
-	teamname: z
+	teamId: z
 	.string({
 		required_error: 'Team name is required',
 	})

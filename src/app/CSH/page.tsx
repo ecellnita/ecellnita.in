@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import Timeline from '~/components/CSH/landingPage/timeline'
 import Footer from '~/components/CSH/footer'
 
-export const TracingBeam = ({
+const TracingBeam = ({
     children,
     className,
   }: {

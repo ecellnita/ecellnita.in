@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
 	useForm,
@@ -26,12 +26,12 @@ import {
 import { LoginTeamSchema } from '~/lib/zod';
 import { LoaderCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface CreateTeamResponse {
-	id: string;
-	teamName: string;
-	createdAt: Date;
-	updatedAt: Date;
+	message: string;
+	teamId: string;
 }
 export type Team = z.infer<typeof LoginTeamSchema>;
 
@@ -42,6 +42,8 @@ export type FlattenObjects<T> = T extends object
 	: T;
 
 function LoginForm() {
+	const router = useRouter();
+
     const form = useForm<Team>({
 		resolver: zodResolver(LoginTeamSchema)
 	});
@@ -51,7 +53,7 @@ function LoginForm() {
 	) => {
 		try {
 			// console.log(values);
-			const res = await fetch('/api/create', {
+			const res = await fetch(`${process.env.API_URL}/login`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -62,12 +64,14 @@ function LoginForm() {
 			);
 			if ('error' in res) {
 				throw new Error(res.error);
-			} else if (res.id) {
+			} else if (res.teamId) {
 				toast.success('Team created successfully');
+				localStorage.setItem('csh_team_id', res.teamId);
 				form.reset({
-					teamname: '',
+					teamId: '',
 					password: ''
 				});
+				router.push('dashboard/view');
 			}
 		} catch (error) {
 			toast.error(String(error));
@@ -99,16 +103,24 @@ function LoginForm() {
 		});
 	};
 
+
+	const logout = () => {
+		localStorage.removeItem('csh_team_id');
+	}
+
+	useEffect(()=>{
+		logout();
+	}, []);
   return (
     <div>
         <Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit, onError)} className='space-y-3'>
 				<FormField
 					control={form.control}
-					name='teamname'
+					name='teamId'
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel className='text-white'>Team Name</FormLabel>
+							<FormLabel className='text-white'>Team Id</FormLabel>
 							<FormControl>
 								<Input
 									placeholder='Case Crackers'
@@ -131,6 +143,7 @@ function LoginForm() {
 									placeholder='Password'
 									{...field}
 									disabled={form.formState.isSubmitting}
+									type='password'
 								/>
 							</FormControl>
 							<FormMessage />
@@ -152,6 +165,7 @@ function LoginForm() {
 						)}
 					</Button>
 				</div>
+				<span className='text-white flex justify-center items-center'>Have not registered yet? <Link href='registration' className='text-white underline mx-2 cursor-pointer'>Register now</Link></span>
 			</form>
 		</Form>
     </div>

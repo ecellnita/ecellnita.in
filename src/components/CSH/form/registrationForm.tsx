@@ -26,12 +26,14 @@ import {
 import { TeamSchema } from '~/lib/zod';
 import { Trash2, LoaderCircle } from 'lucide-react';
 import { toast } from 'sonner';
+import * as dotenv from "dotenv";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+dotenv.config();
 
 interface CreateTeamResponse {
-	id: string;
-	teamName: string;
-	createdAt: Date;
-	updatedAt: Date;
+	message: string;
+	teamId: string;
 }
 export type Team = z.infer<typeof TeamSchema>;
 
@@ -42,18 +44,20 @@ export type FlattenObjects<T> = T extends object
 	: T;
 
 const RegisterForm = () => {
+	const router = useRouter();
+
 	const form = useForm<Team>({
 		resolver: zodResolver(TeamSchema),
 		defaultValues: {
-			teamLeader: {
-				isLeader: true,
+			leader: {
+				passwordHash: '',
 			},
 		},
 	});
 
 	const { fields, append, remove } = useFieldArray({
 		control: form.control,
-		name: 'teamMembers',
+		name: 'members',
 	});
 
 	const onAddMember = () => {
@@ -66,7 +70,7 @@ const RegisterForm = () => {
 		append({
 			name: '',
 			email: '',
-			phoneNumber: '',
+			contact: '',
 		});
 	};
 
@@ -75,7 +79,7 @@ const RegisterForm = () => {
 	) => {
 		try {
 			// console.log(values);
-			const res = await fetch('/api/create', {
+			const res = await fetch(`${process.env.API_URL}/registration`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -86,17 +90,18 @@ const RegisterForm = () => {
 			);
 			if ('error' in res) {
 				throw new Error(res.error);
-			} else if (res.id) {
+			} else if (res.teamId) {
 				toast.success('Team created successfully');
+				router.push('login');
 				form.reset({
 					teamName: '',
-					teamLeader: {
+					leader: {
 						name: '',
 						email: '',
-						phoneNumber: '',
-						isLeader: true,
+						contact: '',
+						passwordHash: ''
 					},
-					teamMembers: [],
+					members: [],
 				});
 			}
 		} catch (error) {
@@ -152,7 +157,7 @@ const RegisterForm = () => {
 				<div className='pt-6 text-lg text-white'>Team Leader Details</div>
 				<FormField
 					control={form.control}
-					name='teamLeader.name'
+					name='leader.name'
 					render={({ field }) => (
 						<FormItem>
 							<FormLabel className='text-white'>Name</FormLabel>
@@ -169,7 +174,7 @@ const RegisterForm = () => {
 				/>
 				<FormField
 					control={form.control}
-					name='teamLeader.email'
+					name='leader.email'
 					render={({ field }) => (
 						<FormItem>
 							<FormLabel className='text-white'>E-mail</FormLabel>
@@ -186,7 +191,7 @@ const RegisterForm = () => {
 				/>
 				<FormField
 					control={form.control}
-					name='teamLeader.phoneNumber'
+					name='leader.contact'
 					render={({ field }) => (
 						<FormItem>
 							<FormLabel className='text-white'>Phone</FormLabel>
@@ -195,6 +200,24 @@ const RegisterForm = () => {
 									placeholder='8973518316'
 									{...field}
 									disabled={form.formState.isSubmitting}
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<FormField
+					control={form.control}
+					name='leader.passwordHash'
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel className='text-white'>Password</FormLabel>
+							<FormControl>
+								<Input
+									placeholder='Password'
+									{...field}
+									disabled={form.formState.isSubmitting}
+									type='password'
 								/>
 							</FormControl>
 							<FormMessage />
@@ -219,7 +242,7 @@ const RegisterForm = () => {
 
 						<FormField
 							control={form.control}
-							name={`teamMembers.${index}.name`}
+							name={`members.${index}.name`}
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel className='text-white'>Name</FormLabel>
@@ -236,7 +259,7 @@ const RegisterForm = () => {
 						/>
 						<FormField
 							control={form.control}
-							name={`teamMembers.${index}.email`}
+							name={`members.${index}.email`}
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel className='text-white'>E-mail</FormLabel>
@@ -253,7 +276,7 @@ const RegisterForm = () => {
 						/>
 						<FormField
 							control={form.control}
-							name={`teamMembers.${index}.phoneNumber`}
+							name={`members.${index}.contact`}
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel className='text-white'>Phone</FormLabel>
@@ -294,6 +317,7 @@ const RegisterForm = () => {
 						)}
 					</Button>
 				</div>
+				<span className='text-white flex justify-center items-center'>Already registered? <Link href='login' className='text-white underline mx-2 cursor-pointer'>Login</Link></span>
 			</form>
 		</Form>
 	);

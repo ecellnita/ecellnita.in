@@ -4,6 +4,7 @@ import { CircleGauge, FilePenLine, LogOut } from 'lucide-react'
 import React from 'react'
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 function Sidepanel() {
     const router = useRouter();
@@ -19,11 +20,11 @@ function Sidepanel() {
                 <CircleGauge className='mr-4' />
                 Dashboard
             </li>
-            <li className={`flex justify-start items-center my-1 py-4 px-4 cursor-pointer rounded-lg hover:bg-[#0c0c29] w-full ${pathname === 'editteam' ? 'bg-[#0c0c29]' : ''}`} onClick={()=>router.push('edit')}>
+            <li className={`flex justify-start items-center my-1 py-4 px-4 cursor-pointer rounded-lg hover:bg-[#0c0c29] w-full ${pathname === 'editteam' ? 'bg-[#0c0c29]' : ''}`} onClick={()=>alert("Activity not started yet")}>
                 <FilePenLine className='mr-4' />
                 Edit team
             </li>
-            <li className={`flex justify-start items-center my-1 py-4 px-4 cursor-pointer rounded-lg hover:bg-[#0c0c29] w-full ${pathname === 'logout' ? 'bg-[#0c0c29]' : ''}`}>
+            <li className={`flex justify-start items-center my-1 py-4 px-4 cursor-pointer rounded-lg hover:bg-[#0c0c29] w-full ${pathname === 'logout' ? 'bg-[#0c0c29]' : ''}`} onClick={()=>router.push('/CSH/login')}>
                 <LogOut className='mr-4' />
                 Logout
             </li>
