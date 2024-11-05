@@ -16,6 +16,10 @@ const navLinks = [
     href: '/',
   },
   {
+    label: 'CSH',
+    href: '/CSh',
+  },
+  {
     label: 'About',
     href: '#about',
   },
