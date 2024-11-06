@@ -1,7 +1,6 @@
 'use server';
 
 import * as bcrypt from 'bcrypt';
-import dns from 'dns';
 import mongoose, { type Connection } from 'mongoose';
 import * as nodemailer from 'nodemailer';
 import { v4 as uuidv4 } from 'uuid';
@@ -64,6 +63,17 @@ export const getTeam = async (teamId: string) => {
   } as TeamWithPasswordHash;
 };
 
+const EMAIL = 'ecell.csh2024@gmail.com';
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: EMAIL,
+    pass: env.EMAIL_PASSWORD,
+  },
+});
+
 export const register = async (team: Team) => {
   await connectToMongoDB();
   const leaderEmail = await TeamType.findOne({
@@ -97,25 +107,11 @@ export const register = async (team: Team) => {
     throw new Error('Invalid email');
   }
 
-  const EMAIL = 'ecell.csh2024@gmail.com';
-
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: EMAIL,
-      pass: env.EMAIL_PASSWORD,
-    },
-  });
-
-  dns.resolveMx(domain, (err) => {
-    if (err) {
-      throw new Error('Invalid email');
-    }
-    const mailOptions = {
-      from: EMAIL,
-      to: team.leader.email,
-      subject: 'Team Id',
-      html: `
+  const mailOptions = {
+    from: EMAIL,
+    to: team.leader.email,
+    subject: 'Registration Successful',
+    html: `
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -166,14 +162,9 @@ export const register = async (team: Team) => {
             </body>
             </html>
             `,
-    };
+  };
 
-    transporter.sendMail(mailOptions, (err) => {
-      if (err) {
-        throw new Error('Email not sent');
-      }
-    });
-  });
+  await transporter.sendMail(mailOptions);
 
   return { teamId, message: 'Team created successfully' };
 };
