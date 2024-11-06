@@ -54,18 +54,7 @@ const RegisterForm = () => {
         contact: '',
         password: '',
       },
-      members: [
-        {
-          name: '',
-          email: '',
-          contact: '',
-        },
-        {
-          name: '',
-          email: '',
-          contact: '',
-        },
-      ],
+      members: [],
     },
   });
 
@@ -75,9 +64,9 @@ const RegisterForm = () => {
   });
 
   const onAddMember = () => {
-    if (fields.length >= 2) {
+    if (fields.length >= 3) {
       toast.error(
-        'A team can have maximum of 3 members including the team leader'
+        'A team can have maximum of 4 members including the team leader'
       );
       return;
     }

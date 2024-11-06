@@ -57,9 +57,9 @@ const EditTeamForm = () => {
   });
 
   const onAddMember = () => {
-    if (fields.length >= 4) {
+    if (fields.length >= 3) {
       toast.error(
-        'A team can have maximum of 5 members including the team leader'
+        'A team can have maximum of 4 members including the team leader'
       );
       return;
     }
