@@ -1,15 +1,22 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Image from 'next/image';
 
-import { initiatives } from '~/lib/data';
 import { cn } from '~/lib/utils';
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import DITLogo from 'public/photos/logo/dit-logo.png';
+import NITALogo from 'public/photos/logo/nita-logo.png';
 
-export const TracingBeam = ({
+import Footer from '~/components/CSH/footer';
+import Hero from '~/components/CSH/landingPage/hero';
+import ProblemStatements from '~/components/CSH/landingPage/problemStatements';
+import Timeline from '~/components/CSH/landingPage/timeline';
+
+const TracingBeam = ({
   children,
   className,
 }: {
@@ -49,9 +56,9 @@ export const TracingBeam = ({
   return (
     <motion.div
       ref={ref}
-      className={cn('relative mx-auto h-full w-full max-w-4xl', className)}
+      className={cn('relative mx-auto h-full w-full', className)}
     >
-      <div className='absolute -left-4 top-3 md:-left-20'>
+      <div className='absolute '>
         <motion.div
           transition={{
             duration: 0.2,
@@ -78,8 +85,8 @@ export const TracingBeam = ({
           />
         </motion.div>
         <svg
-          viewBox={`0 0 20 ${svgHeight}`}
-          width='20'
+          viewBox={`0 0 40 ${svgHeight}`}
+          width='40'
           height={svgHeight}
           className=' ml-4 block'
           aria-hidden='true'
@@ -87,8 +94,8 @@ export const TracingBeam = ({
           <motion.path
             d={`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`}
             fill='none'
-            stroke='#9091A0'
-            strokeOpacity='0.16'
+            stroke='#090810'
+            strokeOpacity='0.80'
             transition={{
               duration: 10,
             }}
@@ -125,35 +132,49 @@ export const TracingBeam = ({
   );
 };
 
-const Initiatives = () => {
+interface TimelineEntry {
+  title: string;
+  content: React.ReactNode;
+}
+
+const timelineEntry: TimelineEntry[] = [
+  {
+    title: '6th Nov',
+    content: `Release of problem statements and Starting of Registration: Welcome to the start of an exciting journey! Register your team, review the event guidelines, and familiarize yourself with the hackathon format.`,
+  },
+  {
+    title: '10th Nov',
+    content: `Closing of Registration: The real test begins! Use this opportunity to showcase your problem-solving abilities and creativity in the field of cybersecurity.`,
+  },
+  {
+    title: '12th Nov',
+    content: `FINALISTS FOUND: The top 5 shall be announced as finalists,  so be ready with your tools and best skills to lock in that win!`,
+  },
+  {
+    title: '15th Nov',
+    content: `Grand Finale: Congratulations to the finalists! In the Grand Finale, top teams must get ready to build their solutions to the given advanced, real-time cybersecurity challenges and present them in front of the panel of experts.`,
+  },
+];
+
+function page() {
   return (
-    <div className='py-12'>
-      <TracingBeam className='px-6'>
-        <div className='relative mx-auto max-w-2xl pl-6 pt-4 antialiased sm:pl-0'>
-          {initiatives.map((item, index) => (
-            <div key={`content-${index}`} className='mb-10'>
-              <h3 className='title-gradient mb-4 w-fit py-1 text-[2rem] font-semibold leading-[1.3] sm:text-5xl md:text-5xl'>
-                {item.title}
-              </h3>
-              <p className='mx-auto max-w-sm pb-4 text-xs sm:text-base md:text-base lg:max-w-4xl'>
-                {item.description}
-              </p>
-              <div className='prose  prose-sm dark:prose-invert text-sm'>
-                <Image
-                  src={item.image}
-                  alt='blog thumbnail'
-                  width={1000}
-                  height={1000}
-                  className='mb-10 aspect-video rounded-lg object-cover'
-                />
-                {item.description}
-              </div>
-            </div>
-          ))}
+    <div className='relative w-full overflow-hidden bg-[#0D0628] bg-cover bg-center'>
+      <TracingBeam className=''>
+        <div className="relative w-full overflow-hidden bg-[#0D0628] bg-[url('/photos/ieif/ieif-bg.png')] bg-cover bg-center px-8">
+          <div className='mx-auto flex w-full max-w-screen-2xl items-center justify-between pt-12'>
+            <Image src={DITLogo} width={256} height={256} alt='DIT Logo' />
+            <Image src={NITALogo} width={128} height={128} alt='NITA Logo' />
+          </div>
+          <TracingBeam className=''>
+            <Hero />
+            <ProblemStatements />
+          </TracingBeam>
         </div>
+        <Timeline data={timelineEntry} />
       </TracingBeam>
+      <Footer />
     </div>
   );
-};
+}
 
-export default Initiatives;
+export default page;

@@ -3,7 +3,7 @@ import React from 'react';
 const Hero = () => {
   return (
     <section className='relative h-full w-full pt-28' id='hero'>
-      <div className='flex flex-col mt-20'>
+      <div className='mt-20 flex flex-col'>
         <h1 className='title-gradient px-4 py-12 text-[2rem] font-semibold leading-[1.3] sm:text-5xl md:text-6xl lg:text-7xl'>
           <span
             className='bg-cover bg-clip-text bg-center bg-no-repeat text-transparent'

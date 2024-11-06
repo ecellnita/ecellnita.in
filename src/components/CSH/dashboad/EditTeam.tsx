@@ -1,12 +1,13 @@
-import React from 'react'
-import EditTeamForm from '../form/editform'
+import React from 'react';
+
+import EditTeamForm from '../form/editform';
 
 function EditTeam() {
   return (
-    <div className='w-[85%] mt-28 flex justify-center items-center'>
-        <EditTeamForm/>
+    <div className='mt-28 flex w-[85%] items-center justify-center'>
+      <EditTeamForm />
     </div>
-  )
+  );
 }
 
-export default EditTeam
+export default EditTeam;

@@ -15,7 +15,7 @@ const LeadershipCard = ({ name, image, position, socials }: ExecutiveProps) => {
         width={320}
         height={480}
         alt={`${name} Profile Photo`}
-        className='object-cover w-full h-full'
+        className='h-full w-full object-cover'
       />
       <div className='leadership-cover absolute bottom-0 z-[3] flex w-full flex-row items-start justify-between px-8 py-4 text-white'>
         <div className='flex flex-col'>
