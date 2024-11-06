@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   type FieldErrors,
   type SubmitErrorHandler,
   type SubmitHandler,
-  useFieldArray,
   useForm,
 } from 'react-hook-form';
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+import { login } from '~/lib/actions';
 import { LoginTeamSchema } from '~/lib/zod';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -31,12 +31,7 @@ import {
 // Components
 import { Button } from '../../ui/button';
 import { Input } from '../../ui/input';
-import axios from 'axios';
 
-interface CreateTeamResponse {
-  message: string;
-  teamId: string;
-}
 export type Team = z.infer<typeof LoginTeamSchema>;
 
 export type FlattenObjects<T> = T extends object
@@ -55,32 +50,18 @@ function LoginForm() {
   const onSubmit: SubmitHandler<Team> = async (
     values: z.infer<typeof LoginTeamSchema>
   ) => {
-    // console.log(values)
     try {
-      // console.log(values);
-      const res = await fetch(`https://csh-backend.vercel.app/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      }).then(
-        async (res) =>
-          (await res.json()) as CreateTeamResponse | { error: string }
-      );
-      if ('error' in res) {
-        throw new Error(res.error);
-      } else {
-        // console.log(res);
-        toast.success('Team created successfully');
-        localStorage.setItem('csh_team_id', res.teamId);
-        form.reset({
-          teamId: '',
-          password: '',
-        });
-        router.push('dashboard/view');
-      }
+      const res = await login(values.teamId, values.password);
+      toast.success('Logged in successfully');
+      console.log(res);
+      localStorage.setItem('csh_team_id', res.teamId);
+      form.reset({
+        teamId: '',
+        password: '',
+      });
+      router.push('dashboard/view');
     } catch (error) {
+      alert(error instanceof Error ? error.message : 'An error occurred');
       toast.error(String(error));
     }
   };
@@ -110,13 +91,6 @@ function LoginForm() {
     });
   };
 
-  // const logout = () => {
-  //   localStorage.removeItem('csh_team_id');
-  // };
-
-  // useEffect(() => {
-  //   logout();
-  // }, []);
   return (
     <div>
       <Form {...form}>

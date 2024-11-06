@@ -4,12 +4,12 @@ import React from 'react';
 import {
   type FieldErrors,
   type SubmitErrorHandler,
-  type SubmitHandler,
   useFieldArray,
   useForm,
 } from 'react-hook-form';
 
-import { TeamSchema } from '~/lib/zod';
+import { editTeam } from '~/lib/actions';
+import { TeamUpdateSchema } from '~/lib/zod';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoaderCircle, Trash2 } from 'lucide-react';
@@ -29,13 +29,7 @@ import {
 import { Button } from '../../ui/button';
 import { Input } from '../../ui/input';
 
-interface CreateTeamResponse {
-  id: string;
-  teamName: string;
-  createdAt: Date;
-  updatedAt: Date;
-}
-export type Team = z.infer<typeof TeamSchema>;
+export type TeamUpdateType = z.infer<typeof TeamUpdateSchema>;
 
 export type FlattenObjects<T> = T extends object
   ? T extends infer O
@@ -44,18 +38,22 @@ export type FlattenObjects<T> = T extends object
   : T;
 
 const EditTeamForm = () => {
-  const form = useForm<Team>({
-    resolver: zodResolver(TeamSchema),
+  const form = useForm<TeamUpdateType>({
+    resolver: zodResolver(TeamUpdateSchema),
     defaultValues: {
-      teamLeader: {
-        isLeader: true,
+      teamName: '',
+      leader: {
+        name: '',
+        email: '',
+        contact: '',
       },
+      members: [],
     },
   });
 
   const { fields, append, remove } = useFieldArray({
     control: form.control,
-    name: 'teamMembers',
+    name: 'members',
   });
 
   const onAddMember = () => {
@@ -68,51 +66,41 @@ const EditTeamForm = () => {
     append({
       name: '',
       email: '',
-      phoneNumber: '',
+      contact: '',
     });
   };
 
-  const onSubmit: SubmitHandler<Team> = async (
-    values: z.infer<typeof TeamSchema>
-  ) => {
+  const onSubmit = async (values: z.infer<typeof TeamUpdateSchema>) => {
     try {
-      // console.log(values);
-      const res = await fetch('/api/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      }).then(
-        async (res) =>
-          (await res.json()) as CreateTeamResponse | { error: string }
-      );
-      if ('error' in res) {
-        throw new Error(res.error);
-      } else if (res.id) {
-        toast.success('Team created successfully');
-        form.reset({
-          teamName: '',
-          teamLeader: {
-            name: '',
-            email: '',
-            phoneNumber: '',
-            isLeader: true,
-          },
-          teamMembers: [],
-        });
+      const teamId = localStorage.getItem('csh_team_id');
+      if (!teamId) return;
+      console.log(teamId);
+      const res = await editTeam(teamId, values);
+      if (!res.success) {
+        toast.error('Could not edit team');
       }
+
+      toast.success('Team updated successfully');
+      form.reset({
+        teamName: '',
+        leader: {
+          name: '',
+          email: '',
+          contact: '',
+        },
+        members: [],
+      });
     } catch (error) {
       toast.error(String(error));
     }
   };
 
-  function collectErrors(obj: FieldErrors<Team>): string[] {
+  function collectErrors(obj: FieldErrors<TeamUpdateType>): string[] {
     const errors: string[] = [];
-    const processObject = (nestedObj: FieldErrors<Team>) => {
+    const processObject = (nestedObj: FieldErrors<TeamUpdateType>) => {
       for (const key in nestedObj) {
         if (nestedObj.hasOwnProperty(key)) {
-          const value = nestedObj[key as keyof Team];
+          const value = nestedObj[key as keyof TeamUpdateType];
           if (typeof value === 'object' && value !== null) {
             processObject(value);
           } else if (key === 'message' && typeof value === 'string') {
@@ -125,7 +113,8 @@ const EditTeamForm = () => {
     return errors;
   }
 
-  const onError: SubmitErrorHandler<Team> = (errors) => {
+  const onError: SubmitErrorHandler<TeamUpdateType> = (errors) => {
+    console.log(errors);
     const errorMessages = collectErrors(errors);
     errorMessages.forEach((err) => {
       toast.error(err);
@@ -136,7 +125,7 @@ const EditTeamForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit, onError)}
-        className='w-[50%] space-y-3'
+        className='z-[100000] w-[50%] space-y-3'
       >
         <FormField
           control={form.control}
@@ -158,7 +147,7 @@ const EditTeamForm = () => {
         <div className='pt-6 text-lg text-white'>Team Leader Details</div>
         <FormField
           control={form.control}
-          name='teamLeader.name'
+          name='leader.name'
           render={({ field }) => (
             <FormItem>
               <FormLabel className='text-white'>Name</FormLabel>
@@ -175,7 +164,7 @@ const EditTeamForm = () => {
         />
         <FormField
           control={form.control}
-          name='teamLeader.email'
+          name='leader.email'
           render={({ field }) => (
             <FormItem>
               <FormLabel className='text-white'>E-mail</FormLabel>
@@ -192,7 +181,7 @@ const EditTeamForm = () => {
         />
         <FormField
           control={form.control}
-          name='teamLeader.phoneNumber'
+          name='leader.contact'
           render={({ field }) => (
             <FormItem>
               <FormLabel className='text-white'>Phone</FormLabel>
@@ -225,7 +214,7 @@ const EditTeamForm = () => {
 
             <FormField
               control={form.control}
-              name={`teamMembers.${index}.name`}
+              name={`members.${index}.name`}
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className='text-white'>Name</FormLabel>
@@ -242,7 +231,7 @@ const EditTeamForm = () => {
             />
             <FormField
               control={form.control}
-              name={`teamMembers.${index}.email`}
+              name={`members.${index}.email`}
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className='text-white'>E-mail</FormLabel>
@@ -259,7 +248,7 @@ const EditTeamForm = () => {
             />
             <FormField
               control={form.control}
-              name={`teamMembers.${index}.phoneNumber`}
+              name={`members.${index}.contact`}
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className='text-white'>Phone</FormLabel>
@@ -286,7 +275,7 @@ const EditTeamForm = () => {
           Add Team Member
         </Button>
 
-        <div className='flex justify-center py-12'>
+        <div className='z-[100000] flex justify-center py-12'>
           <Button
             variant='secondary'
             type='submit'
