@@ -16,7 +16,7 @@ function Card({ icon, title, description, route }: CardProps) {
       href={`/CSH/problems/${route}`}
     >
       <div className='flex items-start'>
-        <div>
+        <div className='flex justify-between items-center w-full px-6'>
           <div className='rounded-full bg-purple-500/10 p-2 text-white'>
             {icon}
           </div>
