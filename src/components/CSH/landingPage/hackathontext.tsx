@@ -25,7 +25,7 @@ export default function HeroText() {
             <Calendar size={35} className='text-white' />
             <div>
               <p className='text-lg font-bold'>
-                5<sup>TH</sup> NOV
+                6<sup>TH</sup> NOV
               </p>
               <p className='text-sm font-semibold'>Registration Starts</p>
             </div>
@@ -34,7 +34,7 @@ export default function HeroText() {
             <Minus size={35} className='rotate-90 text-white' />
             <div>
               <p className='text-lg font-bold'>
-                15<sup>TH</sup> NOV
+                18<sup>TH</sup> NOV
               </p>
               <p className='text-sm font-semibold'>Finale</p>
             </div>

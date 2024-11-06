@@ -151,7 +151,7 @@ const timelineEntry: TimelineEntry[] = [
     content: `FINALISTS FOUND: The top 5 shall be announced as finalists,  so be ready with your tools and best skills to lock in that win!`,
   },
   {
-    title: '15th Nov',
+    title: '18th Nov',
     content: `Grand Finale: Congratulations to the finalists! In the Grand Finale, top teams must get ready to build their solutions to the given advanced, real-time cybersecurity challenges and present them in front of the panel of experts.`,
   },
 ];
