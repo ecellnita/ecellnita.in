@@ -43,10 +43,6 @@ export default function Timeline({ data }: { data: TimelineEntry[] }) {
         <h2 className='mb-16 text-balance text-[clamp(2rem,7vw,5.5rem)] font-bold leading-[1.1] tracking-[-0.02em] text-white/95'>
           Timeline of the hackathon
         </h2>
-        <p className='max-w-sm text-sm text-white/70 md:text-base'>
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
-        </p>
       </div>
 
       <div ref={ref} className='relative mx-auto w-[85%] pb-20'>

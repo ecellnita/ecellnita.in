@@ -144,11 +144,11 @@ const timelineEntry: TimelineEntry[] = [
     content: `Release of problem statements and Starting of Registration: Welcome to the start of an exciting journey! Register your team, review the event guidelines, and familiarize yourself with the hackathon format.`,
   },
   {
-    title: '10th Nov',
+    title: '15th Nov',
     content: `Closing of Registration: The real test begins! Use this opportunity to showcase your problem-solving abilities and creativity in the field of cybersecurity.`,
   },
   {
-    title: '12th Nov',
+    title: '16th Nov',
     content: `FINALISTS FOUND: The top 5 shall be announced as finalists,  so be ready with your tools and best skills to lock in that win!`,
   },
   {
@@ -167,7 +167,7 @@ function page() {
               <Image src={DITLogo} width={128} height={128} alt='DIT Logo' />
               <div className='ml-4'>
                 Supported by <br />
-                Derectorate of Information Technology,<br />
+                Directorate of Information Technology,<br />
                 Govt. of Tripura
               </div>
             </div>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { Camera, Lock, Monitor, Star } from 'lucide-react';
+import { Camera, ChevronRight, Lock, Monitor, Star } from 'lucide-react';
 
 interface CardProps {
   icon: React.ReactNode;
@@ -16,8 +16,11 @@ function Card({ icon, title, description, route }: CardProps) {
       href={`/CSH/problems/${route}`}
     >
       <div className='flex items-start'>
-        <div className='rounded-full bg-purple-500/10 p-2 text-white'>
-          {icon}
+        <div>
+          <div className='rounded-full bg-purple-500/10 p-2 text-white'>
+            {icon}
+          </div>
+          <ChevronRight/>
         </div>
         <div className='space-y-2'>
           <h3 className='text-xl font-semibold text-white'>{title}</h3>
