@@ -15,6 +15,7 @@ import Footer from '~/components/CSH/footer';
 import Hero from '~/components/CSH/landingPage/hero';
 import ProblemStatements from '~/components/CSH/landingPage/problemStatements';
 import Timeline from '~/components/CSH/landingPage/timeline';
+import CSHAbout from '~/components/CSH/landingPage/about';
 
 const TracingBeam = ({
   children,
@@ -161,12 +162,28 @@ function page() {
     <div className='relative w-full overflow-hidden bg-[#0D0628] bg-cover bg-center'>
       <TracingBeam className=''>
         <div className="relative w-full overflow-hidden bg-[#0D0628] bg-[url('/photos/ieif/ieif-bg.png')] bg-cover bg-center px-8">
-          <div className='mx-auto flex w-full max-w-screen-2xl items-center justify-between pt-12'>
-            <Image src={DITLogo} width={256} height={256} alt='DIT Logo' />
-            <Image src={NITALogo} width={128} height={128} alt='NITA Logo' />
+          <div className='mx-auto flex w-[85%] max-w-screen-2xl items-center justify-between pt-12 mb-28'>
+            <div className='flex justify-start items-center'>
+              <Image src={DITLogo} width={128} height={128} alt='DIT Logo' />
+              <div className='ml-4'>
+                Supported by <br />
+                Derectorate of Information Technology,<br />
+                Govt. of Tripura
+              </div>
+            </div>
+
+            <div className='flex justify-start items-center'>
+              <div className='mr-4'>
+                Organized by <br />
+                National Institute of Technology,<br />
+                Agartala
+              </div>
+              <Image src={NITALogo} width={128} height={128} alt='NITA Logo' />
+            </div>
           </div>
           <TracingBeam className=''>
             <Hero />
+            <CSHAbout/>
             <ProblemStatements />
           </TracingBeam>
         </div>
