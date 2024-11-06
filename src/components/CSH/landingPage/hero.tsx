@@ -29,7 +29,7 @@ export default function Hero() {
             arena.
           </p>
           <button
-            className='rounded-lg bg-white px-4 py-2 font-semibold text-gray-700'
+            className='rounded-lg bg-white px-4 py-2 font-semibold text-gray-700 z-10'
             onClick={() => router.push('/CSH/registration')}
           >
             Register Now

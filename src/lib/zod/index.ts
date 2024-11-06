@@ -29,7 +29,7 @@ const TeamMemberSchema = z.object({
 });
 
 const TeamLeaderSchema = TeamMemberSchema.extend({
-  passwordHash: z
+  password: z
     .string({
       required_error: 'Team password is required',
     })
@@ -61,5 +61,5 @@ export const LoginTeamSchema = z.object({
     .string({
       required_error: 'Password is required',
     })
-    .length(10, { message: 'Password must be 10 characters long' }),
+    .min(8, { message: 'Password must be 8 characters long' }),
 });

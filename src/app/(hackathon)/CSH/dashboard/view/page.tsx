@@ -13,7 +13,7 @@ function Page() {
     try {
       // console.log(values);
       const team_id = localStorage.getItem('csh_team_id');
-      const res = await fetch(`${process.env.API_URL}/${team_id}`, {
+      const res = await fetch(`https://csh-backend.vercel.app/${team_id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

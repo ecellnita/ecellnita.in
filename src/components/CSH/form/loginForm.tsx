@@ -54,9 +54,10 @@ function LoginForm() {
   const onSubmit: SubmitHandler<Team> = async (
     values: z.infer<typeof LoginTeamSchema>
   ) => {
+    // console.log(values)
     try {
       // console.log(values);
-      const res = await fetch(`${process.env.API_URL}/login`, {
+      const res = await fetch(`https://csh-backend.vercel.app/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +69,8 @@ function LoginForm() {
       );
       if ('error' in res) {
         throw new Error(res.error);
-      } else if (res.teamId) {
+      } else {
+        // console.log(res);
         toast.success('Team created successfully');
         localStorage.setItem('csh_team_id', res.teamId);
         form.reset({
@@ -107,13 +109,13 @@ function LoginForm() {
     });
   };
 
-  const logout = () => {
-    localStorage.removeItem('csh_team_id');
-  };
+  // const logout = () => {
+  //   localStorage.removeItem('csh_team_id');
+  // };
 
-  useEffect(() => {
-    logout();
-  }, []);
+  // useEffect(() => {
+  //   logout();
+  // }, []);
   return (
     <div>
       <Form {...form}>

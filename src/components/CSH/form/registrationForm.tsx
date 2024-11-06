@@ -51,7 +51,7 @@ const RegisterForm = () => {
     resolver: zodResolver(TeamSchema),
     defaultValues: {
       leader: {
-        passwordHash: '',
+        password: '',
       },
     },
   });
@@ -79,8 +79,9 @@ const RegisterForm = () => {
     values: z.infer<typeof TeamSchema>
   ) => {
     try {
+      console.log(values)
       // console.log(values);
-      const res = await fetch(`${process.env.API_URL}/registration`, {
+      const res = await fetch('https://csh-backend.vercel.app/registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -101,7 +102,7 @@ const RegisterForm = () => {
             name: '',
             email: '',
             contact: '',
-            passwordHash: '',
+            password: '',
           },
           members: [],
         });
@@ -213,7 +214,7 @@ const RegisterForm = () => {
         />
         <FormField
           control={form.control}
-          name='leader.passwordHash'
+          name='leader.password'
           render={({ field }) => (
             <FormItem>
               <FormLabel className='text-white'>Password</FormLabel>

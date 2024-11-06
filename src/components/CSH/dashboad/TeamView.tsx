@@ -17,7 +17,7 @@ function TeamView({ teamDetails }) {
         <div className='flex flex-col items-center justify-between'>
           <span className='flex items-center justify-between'>
             <span className='mr-4 text-xl'>
-              {teamDetails && teamDetails.members.length}
+              {teamDetails && teamDetails.members.length+1}
             </span>
             <Users />
           </span>
