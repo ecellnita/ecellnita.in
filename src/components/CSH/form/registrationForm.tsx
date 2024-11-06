@@ -12,6 +12,7 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+import { register } from '~/lib/actions';
 import { TeamSchema } from '~/lib/zod';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -32,10 +33,6 @@ import {
 import { Button } from '../../ui/button';
 import { Input } from '../../ui/input';
 
-interface CreateTeamResponse {
-  message: string;
-  teamId: string;
-}
 export type Team = z.infer<typeof TeamSchema>;
 
 export type FlattenObjects<T> = T extends object
@@ -50,9 +47,14 @@ const RegisterForm = () => {
   const form = useForm<Team>({
     resolver: zodResolver(TeamSchema),
     defaultValues: {
+      teamName: '',
       leader: {
+        name: '',
+        email: '',
+        contact: '',
         password: '',
       },
+      members: [],
     },
   });
 
@@ -62,9 +64,9 @@ const RegisterForm = () => {
   });
 
   const onAddMember = () => {
-    if (fields.length >= 4) {
+    if (fields.length >= 3) {
       toast.error(
-        'A team can have maximum of 5 members including the team leader'
+        'A team can have maximum of 4 members including the team leader'
       );
       return;
     }
@@ -79,34 +81,20 @@ const RegisterForm = () => {
     values: z.infer<typeof TeamSchema>
   ) => {
     try {
-      console.log(values)
-      // console.log(values);
-      const res = await fetch('https://csh-backend.vercel.app/registration', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      await register(values);
+
+      toast.success('Team created successfully');
+      router.push('login');
+      form.reset({
+        teamName: '',
+        leader: {
+          name: '',
+          email: '',
+          contact: '',
+          password: '',
         },
-        body: JSON.stringify(values),
-      }).then(
-        async (res) =>
-          (await res.json()) as CreateTeamResponse | { error: string }
-      );
-      if ('error' in res) {
-        throw new Error(res.error);
-      } else if (res.teamId) {
-        toast.success('Team created successfully');
-        router.push('login');
-        form.reset({
-          teamName: '',
-          leader: {
-            name: '',
-            email: '',
-            contact: '',
-            password: '',
-          },
-          members: [],
-        });
-      }
+        members: [],
+      });
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'An error occurred');
     }

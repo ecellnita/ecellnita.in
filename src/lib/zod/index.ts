@@ -43,12 +43,23 @@ export const TeamSchema = z.object({
     })
     .max(50, { message: 'Team Name must be atmost 50 characters long' }),
   leader: TeamLeaderSchema,
-  members: z
-    .array(TeamMemberSchema)
-    .refine((data) => data.length >= 2 && data.length <= 4, {
-      message:
-        'A team must have between 3 and 5 members, including the team leader.',
-    }),
+  members: z.array(TeamMemberSchema).refine((data) => data.length <= 3, {
+    message: 'A team can have maximum of 4 members including the team leader',
+  }),
+});
+
+export const TeamUpdateSchema = z.object({
+  teamName: z
+    .string()
+    .max(50, { message: 'Team Name must be at most 50 characters long' }),
+  leader: z.object({
+    name: z.string(),
+    email: z.string(),
+    contact: z.string(),
+  }),
+  members: z.array(TeamMemberSchema).refine((data) => data.length <= 3, {
+    message: 'A team can have maximum of 4 members including the team leader',
+  }),
 });
 
 export const LoginTeamSchema = z.object({
