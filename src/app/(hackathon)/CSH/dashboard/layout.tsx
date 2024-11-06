@@ -1,16 +1,9 @@
 'use client';
 
-import localFont from 'next/font/local';
-
 import { SmoothScrollProvider } from '~/providers';
 import '~/styles/globals.css';
 
 import Sidepanel from '~/components/CSH/dashboad/Sidepanel';
-
-const sfPro = localFont({
-  src: '../../../../public/SF Pro.ttf',
-  variable: '--font-sans',
-});
 
 export default function RootLayout({
   children,
@@ -19,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`font-sans ${sfPro.variable}`}>
+      <body className={`font-sans`}>
         <SmoothScrollProvider>
           <Sidepanel />
           {children}
