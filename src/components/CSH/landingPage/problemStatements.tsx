@@ -41,7 +41,7 @@ export default function ProblemStatements() {
       icon: <Lock className='h-5 w-5' />,
       title: 'Innovation for Clean Homes and Cities',
       description:
-        'Participants should propose innovative solutions focused on waste reduction, pollution control, and sustainable urban planning. Expected outputs include actionable ideas or models that illustrate how these solutions can contribute to creating greener, cleaner communities.',
+        'Develop strategies and solutions that promote cleaner, healthier, and eco-friendlier environments in urban and residential areas. Focus on waste reduction, pollution control, and sustainable urban planning to enhance the quality of life and environmental health.',
       route: 'clean-home-cities',
     },
     {
@@ -49,21 +49,21 @@ export default function ProblemStatements() {
       title:
         'Low-Water Use Public Toilets with Digital Monitoring and Control Systems',
       description:
-        'Participants should develop water-efficient designs and digital monitoring systems that facilitate timely maintenance in high-traffic areas. Solutions should illustrate how technology can optimize water usage and improve hygiene, accessibility, and user satisfaction.',
+        'Design a public restroom system that minimizes water consumption while ensuring cleanliness, hygiene, and efficient maintenance in high-traffic areas. Incorporate digital monitoring and control systems to enhance maintenance and user experience.',
       route: 'low-water-use-public-toilets',
     },
     {
       icon: <Star className='h-5 w-5' />,
       title: '“May I Help You” Robot Design',
       description:
-        'Participants are expected to design a robot concept that incorporates features such as voice recognition, navigation, and interactive assistance. Solutions should demonstrate how these functionalities make the robot effective at guiding and assisting individuals in everyday environments.',
+        'Design a "May I Help You" robotic assistant to enhance convenience and safety in public settings such as schools, hospitals, and malls. Consider essential features that would make the robot capable of guiding, assisting, and interacting with people in these environments.',
       route: 'robot-design',
     },
     {
       icon: <Star className='h-5 w-5' />,
       title: 'Open Innovation Challenge',
       description:
-        'Participants are expected to present a well-defined solution addressing an issue in areas like sustainability, education, or healthcare. Outputs should include a scalable model or framework ready for expert evaluation, demonstrating the potential for meaningful real-world impact.',
+        'Identify a significant real-world problem and propose an innovative solution in a focus area such as sustainability, education, or healthcare. The solution should address the core aspects of the issue and demonstrate potential for real-world impact and scalability.',
       route: 'open-innovation',
     },
   ];

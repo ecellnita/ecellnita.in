@@ -14,27 +14,57 @@ function page() {
               </h1>
 
               {/* PS-1 */}
-              <div className='mb-7 mt-14'>
+              <div className='mb-7 mt-14 rounded-3xl border border-white p-4'>
                 <div className='my-6 flex w-[90%] flex-col items-start justify-between'>
                   <h3 className='text-2xl font-bold text-white'>
                     Problem statement
                   </h3>
                   <p className='my-2 text-lg'>
-                    What features should a robotic assistant possess to improve
-                    convenience and safety in settings like schools, hospitals,
-                    and malls?
+                    Design a {"May I Help You"} robotic assistant to enhance convenience and safety in public settings such as schools, hospitals, and malls. Consider essential features that would make the robot capable of guiding, assisting, and interacting with people in these environments.
                   </p>
                 </div>
                 <div className='my-6 flex w-[90%] flex-col items-start justify-between'>
                   <h3 className='text-2xl font-bold text-white'>
                     Expected Outcome
                   </h3>
+                  <div className='my-5 flex flex-col gap-1'>
+                    <div className='flex flex-row items-center gap-2'>
+                      <div className='h-3 w-3 rounded-full bg-white' />
+                      Construct a conceptual robot design that prioritizes user convenience and safety.
+                    </div>
+                    <div className='flex flex-row items-center gap-2'>
+                      <div className='h-3 w-3 rounded-full bg-white' />
+                      Formulate detailed descriptions of key features, including:
+                    </div>
+                    <div className='ml-2 my-2'>
+                      <div className='flex flex-row items-center gap-2'>
+                        <div className='h-2 w-2 rounded-full bg-transparent border-2 border-white' />
+                        Voice Recognition: Ability to understand and respond to verbal commands for ease of use.
+                      </div>
+                      <div className='flex flex-row items-center gap-2'>
+                        <div className='h-2 w-2 rounded-full bg-transparent border-2 border-white' />
+                        Navigation System: Efficient movement and obstacle avoidance in crowded spaces.
+                      </div>
+                      <div className='flex flex-row items-center gap-2'>
+                        <div className='h-2 w-2 rounded-full bg-transparent border-2 border-white' />
+                        Interactive Assistance: Engaging and helpful interactions with users, including responses to questions or guidance to specific locations.
+                      </div>
+                    </div>
+                    <div className='flex flex-row items-center gap-2'>
+                      <div className='h-3 w-3 rounded-full bg-white' />
+                      Draft clear explanation of how each feature improves the robot’s effectiveness in real-life scenarios.
+                    </div>
+                    <div className='flex flex-row items-center gap-2'>
+                      <div className='h-3 w-3 rounded-full bg-white' />
+                      Use visual aids or mock-ups to illustrate the robot’s design and functionalities (optional).
+                    </div>
+                  </div>
                   <p className='my-2 text-lg'>
-                    Participants are expected to design a robot concept that
-                    incorporates features such as voice recognition, navigation,
-                    and interactive assistance. Solutions should demonstrate how
-                    these functionalities make the robot effective at guiding
-                    and assisting individuals in everyday environments.
+                    Participants should propose innovative solutions focused on
+                    waste reduction, pollution control, and sustainable urban
+                    planning. Expected outputs include actionable ideas or
+                    models that illustrate how these solutions can contribute to
+                    creating greener, cleaner communities.
                   </p>
                 </div>
               </div>
