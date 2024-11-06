@@ -73,13 +73,6 @@ function page() {
                       Use visual aids, prototypes, or mock-ups to support the proposed solution (Optional).
                     </div>
                   </div>
-                  <p className='my-2 text-lg'>
-                    Participants should propose innovative solutions focused on
-                    waste reduction, pollution control, and sustainable urban
-                    planning. Expected outputs include actionable ideas or
-                    models that illustrate how these solutions can contribute to
-                    creating greener, cleaner communities.
-                  </p>
                 </div>
               </div>
             </div>
