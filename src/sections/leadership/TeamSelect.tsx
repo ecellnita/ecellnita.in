@@ -17,7 +17,7 @@ const TeamSelect = () => {
 
   return (
     <div className='mx-auto my-6 flex w-full max-w-screen-xl flex-col'>
-      <div className='border hide-scrollbar mx-auto flex w-full max-w-xs flex-row items-center overflow-x-scroll rounded-full p-1 shadow-sm sm:max-w-sm md:max-w-md lg:max-w-lg'>
+      <div className='hide-scrollbar mx-auto flex w-full max-w-xs flex-row items-center overflow-x-scroll rounded-full border p-1 shadow-sm sm:max-w-sm md:max-w-md lg:max-w-lg'>
         {Teams.map((team) => {
           return (
             <div className='relative' key={team.key}>

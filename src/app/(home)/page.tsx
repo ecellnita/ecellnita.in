@@ -2,17 +2,16 @@ import React from 'react';
 
 import Image from 'next/image';
 
+import AboutUs from '~/sections/aboutus';
+import ImageSlideShow from '~/sections/slideshow';
+import Speakers from '~/sections/speakers';
+
 import { About, Contact, Hero } from '~/sections';
 
 import Lights from '~/components/navbar/Lights';
 
 import CubesBackground from '~/assets/cube.svg';
 import StripsBackground from '~/assets/strips.svg';
-import Speakers from '~/sections/speakers';
-import AboutUs from '~/sections/aboutus';
-import ImageSlideShow from '~/sections/slideshow';
-
-
 
 const Home = () => {
   return (
@@ -28,12 +27,12 @@ const Home = () => {
         </div>
       </div>
       <div className='relative min-h-screen overflow-y-hidden text-center sm:h-screen'>
-        <div className='absolute top-0 overflow-y-hidden' 
+        <div
+          className='absolute top-0 overflow-y-hidden'
           style={{
-            backgroundImage:
-              'url(/photos/background/hero_bg.jpg)',
+            backgroundImage: 'url(/photos/background/hero_bg.jpg)',
             backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat'  
+            backgroundRepeat: 'no-repeat',
           }}
         >
           <Image
@@ -44,11 +43,11 @@ const Home = () => {
         </div>
         <Hero />
       </div>
-      <AboutUs/>
+      <AboutUs />
       <About />
-      <Speakers/>
+      <Speakers />
 
-      <ImageSlideShow/>
+      <ImageSlideShow />
       <Contact />
     </div>
   );

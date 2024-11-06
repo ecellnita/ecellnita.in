@@ -15,7 +15,6 @@
 //     }
 // });
 
-
 // export const RegisterTeam = async(formData) => {
 //     const {teamName, leader, members, password} = formData;
 
