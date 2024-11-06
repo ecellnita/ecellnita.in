@@ -1,16 +1,24 @@
+"use client"
+
 import { Monitor, Lock, Camera, Star } from "lucide-react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 interface CardProps {
   icon: React.ReactNode
   title: string
-  description: string
+  description: string,
+  route: string
 }
 
-function Card({ icon, title, description }: CardProps) {
+function Card({ icon, title, description, route }: CardProps) {
+  const router = useRouter();
+
   return (
-    <div className="rounded-xl bg-purple-900/20 p-6 backdrop-blur-md backdrop-filter">
-      <div className="flex items-start gap-4">
+    <div className="rounded-xl bg-purple-900/20 p-6 backdrop-blur-md backdrop-filter" onClick={()=>{
+      router.push(`problems/${route}`);
+    }}>
+      <div className="flex items-start">
         <div className="rounded-full bg-purple-500/10 p-2 text-white">
           {icon}
         </div>
@@ -28,27 +36,32 @@ export default function ProblemStatements() {
     {
       icon: <Monitor className="h-5 w-5" />,
       title: "Cyber Security Hackathon",
-      description: "Participants will demonstrate their proficiency in cybersecurity by applying essential tools and techniques to solve practical challenges. They should produce solutions and insights that address each specific threat, showing readiness to tackle real-world cybersecurity issues."
+      description: "Participants will demonstrate their proficiency in cybersecurity by applying essential tools and techniques to solve practical challenges. They should produce solutions and insights that address each specific threat, showing readiness to tackle real-world cybersecurity issues.",
+      route: 'cybersecurity'
     },
     {
       icon: <Lock className="h-5 w-5" />,
       title: "Innovation for Clean Homes and Cities",
-      description: "Participants should propose innovative solutions focused on waste reduction, pollution control, and sustainable urban planning. Expected outputs include actionable ideas or models that illustrate how these solutions can contribute to creating greener, cleaner communities."
+      description: "Participants should propose innovative solutions focused on waste reduction, pollution control, and sustainable urban planning. Expected outputs include actionable ideas or models that illustrate how these solutions can contribute to creating greener, cleaner communities.",
+      route: 'clean-home-citeis'
     },
     {
       icon: <Camera className="h-5 w-5" />,
       title: "Low-Water Use Public Toilets with Digital Monitoring and Control Systems",
-      description: "Participants should develop water-efficient designs and digital monitoring systems that facilitate timely maintenance in high-traffic areas. Solutions should illustrate how technology can optimize water usage and improve hygiene, accessibility, and user satisfaction."
+      description: "Participants should develop water-efficient designs and digital monitoring systems that facilitate timely maintenance in high-traffic areas. Solutions should illustrate how technology can optimize water usage and improve hygiene, accessibility, and user satisfaction.",
+      route: 'low-water-use-public-toilets'
     },
     {
       icon: <Star className="h-5 w-5" />,
       title: "“May I Help You” Robot Design",
-      description: "Participants are expected to design a robot concept that incorporates features such as voice recognition, navigation, and interactive assistance. Solutions should demonstrate how these functionalities make the robot effective at guiding and assisting individuals in everyday environments."
+      description: "Participants are expected to design a robot concept that incorporates features such as voice recognition, navigation, and interactive assistance. Solutions should demonstrate how these functionalities make the robot effective at guiding and assisting individuals in everyday environments.",
+      route: 'robot-design'
     },
     {
       icon: <Star className="h-5 w-5" />,
       title: "Open Innovation Challenge",
-      description: "Participants are expected to present a well-defined solution addressing an issue in areas like sustainability, education, or healthcare. Outputs should include a scalable model or framework ready for expert evaluation, demonstrating the potential for meaningful real-world impact."
+      description: "Participants are expected to present a well-defined solution addressing an issue in areas like sustainability, education, or healthcare. Outputs should include a scalable model or framework ready for expert evaluation, demonstrating the potential for meaningful real-world impact.",
+      route: 'open-innovation'
     }
   ]
 
