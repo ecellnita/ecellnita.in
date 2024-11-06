@@ -47,23 +47,23 @@ const RegisterForm = () => {
   const form = useForm<Team>({
     resolver: zodResolver(TeamSchema),
     defaultValues: {
-      teamName: 'Middle-Out Degens',
+      teamName: '',
       leader: {
-        name: 'Vedant',
-        email: 'vedantchainani1084@gmail.com',
-        contact: '7020084608',
-        password: '1234567890',
+        name: '',
+        email: '',
+        contact: '',
+        password: '',
       },
       members: [
         {
-          name: 'Dishank',
-          email: 'd@gmail.com',
-          contact: '7020084608',
+          name: '',
+          email: '',
+          contact: '',
         },
         {
-          name: 'Ashu',
-          email: 'a@gmail.com',
-          contact: '7020084608',
+          name: '',
+          email: '',
+          contact: '',
         },
       ],
     },
