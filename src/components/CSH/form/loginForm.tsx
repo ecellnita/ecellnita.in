@@ -53,7 +53,6 @@ function LoginForm() {
     try {
       const res = await login(values.teamId, values.password);
       toast.success('Logged in successfully');
-      console.log(res);
       localStorage.setItem('csh_team_id', res.teamId);
       form.reset({
         teamId: '',
