@@ -5,6 +5,8 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(['development', 'test', 'production']),
     API_URL: z.string().url(),
+    MONGO_DB_URL: z.string(),
+    EMAIL_PASSWORD: z.string(),
   },
   client: {},
   experimental__runtimeEnv: {},

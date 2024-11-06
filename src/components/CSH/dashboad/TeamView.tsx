@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { type TeamWithPasswordHash } from '~/lib/actions';
+
 import { Users } from 'lucide-react';
 
-function TeamView({ teamDetails }) {
+function TeamView(teamDetails: TeamWithPasswordHash) {
   return (
     <div className='mt-20 flex w-[85%] flex-col p-8'>
       <div className='flex items-center justify-between rounded-xl bg-[#0c0c29] p-8'>
@@ -11,13 +13,13 @@ function TeamView({ teamDetails }) {
             Team: {teamDetails && teamDetails.teamName}
           </h1>
           <p className='mt-4'>
-            Team Leader: {teamDetails && teamDetails.leader.Name}
+            Team Leader: {teamDetails && teamDetails.leader.name}
           </p>
         </div>
         <div className='flex flex-col items-center justify-between'>
           <span className='flex items-center justify-between'>
             <span className='mr-4 text-xl'>
-              {teamDetails && teamDetails.members.length+1}
+              {teamDetails && teamDetails.members.length + 1}
             </span>
             <Users />
           </span>
