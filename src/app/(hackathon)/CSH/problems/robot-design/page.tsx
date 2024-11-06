@@ -6,7 +6,7 @@ function page() {
   return (
     <>
       <div className='relative w-full overflow-hidden bg-[#0D0628] bg-cover bg-center'>
-        <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[#0D0628] bg-[url('/photos/ieif/ieif-bg.png')] bg-cover bg-center py-16">
+        <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#0D0628] bg-[url('/photos/ieif/ieif-bg.png')] bg-cover bg-center py-16">
           <div className='mt-14 flex w-[85%] flex-col items-center justify-center'>
             <div className='flex flex-col items-center justify-center'>
               <h1 className='text-6xl font-bold text-white'>

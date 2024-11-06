@@ -1,7 +1,4 @@
-'use client';
-
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import { Camera, Lock, Monitor, Star } from 'lucide-react';
 
@@ -13,14 +10,10 @@ interface CardProps {
 }
 
 function Card({ icon, title, description, route }: CardProps) {
-  const router = useRouter();
-
   return (
-    <div
+    <Link
       className='rounded-xl bg-purple-900/20 p-6 backdrop-blur-md backdrop-filter'
-      onClick={() => {
-        router.push(`problems/${route}`);
-      }}
+      href={`/CSH/problems/${route}`}
     >
       <div className='flex items-start'>
         <div className='rounded-full bg-purple-500/10 p-2 text-white'>
@@ -31,7 +24,7 @@ function Card({ icon, title, description, route }: CardProps) {
           <p className='text-sm leading-relaxed text-white/70'>{description}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -49,7 +42,7 @@ export default function ProblemStatements() {
       title: 'Innovation for Clean Homes and Cities',
       description:
         'Participants should propose innovative solutions focused on waste reduction, pollution control, and sustainable urban planning. Expected outputs include actionable ideas or models that illustrate how these solutions can contribute to creating greener, cleaner communities.',
-      route: 'clean-home-citeis',
+      route: 'clean-home-cities',
     },
     {
       icon: <Camera className='h-5 w-5' />,

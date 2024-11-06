@@ -15,7 +15,6 @@ import { useRouter } from 'next/navigation';
 import { TeamSchema } from '~/lib/zod';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as dotenv from 'dotenv';
 import { LoaderCircle, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
 import type * as z from 'zod';
@@ -32,8 +31,6 @@ import {
 // Components
 import { Button } from '../../ui/button';
 import { Input } from '../../ui/input';
-
-dotenv.config();
 
 interface CreateTeamResponse {
   message: string;
@@ -110,7 +107,7 @@ const RegisterForm = () => {
         });
       }
     } catch (error) {
-      toast.error(String(error));
+      toast.error(error instanceof Error ? error.message : 'An error occurred');
     }
   };
 

@@ -3,9 +3,13 @@
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
 
+import Image from 'next/image';
+
 import { cn } from '~/lib/utils';
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import DITLogo from 'public/photos/logo/dit-logo.png';
+import NITALogo from 'public/photos/logo/nita-logo.png';
 
 import Footer from '~/components/CSH/footer';
 import Hero from '~/components/CSH/landingPage/hero';
@@ -54,11 +58,7 @@ const TracingBeam = ({
       ref={ref}
       className={cn('relative mx-auto h-full w-full', className)}
     >
-      <div className='mx-auto flex w-full max-w-screen-2xl items-center justify-between border'>
-        <div>Image 1</div>
-        <div>Image 2</div>
-      </div>
-      <div className='absolute left-8 top-[8rem] md:left-16'>
+      <div className='absolute '>
         <motion.div
           transition={{
             duration: 0.2,
@@ -140,23 +140,19 @@ interface TimelineEntry {
 const timelineEntry: TimelineEntry[] = [
   {
     title: '6th Nov',
-    content:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet suscipit dolor repudiandae placeat accusamus deleniti id, autem facilis totam nesciunt odit ipsam iure illum, harum unde ad? Exercitationem, et quidem?',
+    content: `Release of problem statements and Starting of Registration: Welcome to the start of an exciting journey! Register your team, review the event guidelines, and familiarize yourself with the hackathon format.`,
   },
   {
     title: '10th Nov',
-    content:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet suscipit dolor repudiandae placeat accusamus deleniti id, autem facilis totam nesciunt odit ipsam iure',
+    content: `Closing of Registration: The real test begins! Use this opportunity to showcase your problem-solving abilities and creativity in the field of cybersecurity.`,
   },
   {
     title: '12th Nov',
-    content:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet suscipit dolor repudiandae placeat accusamus deleniti id, autem facilis totam nesciunt odit ipsam iure Eveniet suscipit dolor repudiandae consectetur adipisicing elit.',
+    content: `FINALISTS FOUND: The top 5 shall be announced as finalists,  so be ready with your tools and best skills to lock in that win!`,
   },
   {
-    title: '14th Nov',
-    content:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet suscipit dolor repudiandae placeat accusamus deleniti id, autem facilis totam nesciunt odit ipsam iure Eveniet suscipit dolor repudiandae',
+    title: '15th Nov',
+    content: `Grand Finale: Congratulations to the finalists! In the Grand Finale, top teams must get ready to build their solutions to the given advanced, real-time cybersecurity challenges and present them in front of the panel of experts.`,
   },
 ];
 
@@ -164,7 +160,11 @@ function page() {
   return (
     <div className='relative w-full overflow-hidden bg-[#0D0628] bg-cover bg-center'>
       <TracingBeam className=''>
-        <div className="relative w-full overflow-hidden bg-[#0D0628] bg-[url('/photos/ieif/ieif-bg.png')] bg-cover bg-center">
+        <div className="relative w-full overflow-hidden bg-[#0D0628] bg-[url('/photos/ieif/ieif-bg.png')] bg-cover bg-center px-8">
+          <div className='mx-auto flex w-full max-w-screen-2xl items-center justify-between pt-12'>
+            <Image src={DITLogo} width={256} height={256} alt='DIT Logo' />
+            <Image src={NITALogo} width={128} height={128} alt='NITA Logo' />
+          </div>
           <TracingBeam className=''>
             <Hero />
             <ProblemStatements />

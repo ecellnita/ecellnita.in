@@ -9,7 +9,7 @@ export default function Hero() {
   const router = useRouter();
 
   return (
-    <div className='mt-10 flex h-[100svh] w-full items-center justify-center'>
+    <div className='flex h-[40svh] w-full items-center justify-center'>
       <div className='flex w-[80%] items-center justify-between'>
         {/* <Image src='/photos/ieif/hero-cyber-graphics.png' alt="hero-cyber-graphics" width={450} height={450} /> */}
         <div>
@@ -30,7 +30,7 @@ export default function Hero() {
           </p>
           <button
             className='rounded-lg bg-white px-4 py-2 font-semibold text-gray-700'
-            onClick={() => router.push('IEIF/registration')}
+            onClick={() => router.push('/CSH/registration')}
           >
             Register Now
           </button>
