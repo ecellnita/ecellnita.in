@@ -144,6 +144,10 @@ const timelineEntry: TimelineEntry[] = [
     content: `Release of problem statements and Starting of Registration: Welcome to the start of an exciting journey! Register your team, review the event guidelines, and familiarize yourself with the hackathon format.`,
   },
   {
+    title: '9th Nov',
+    content: `Submission of presentation starts`,
+  },
+  {
     title: '15th Nov',
     content: `Closing of Registration: The real test begins! Use this opportunity to showcase your problem-solving abilities and creativity in the field of cybersecurity.`,
   },

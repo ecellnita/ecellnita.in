@@ -15,17 +15,15 @@ function Card({ icon, title, description, route }: CardProps) {
       className='rounded-xl bg-purple-900/20 p-6 backdrop-blur-md backdrop-filter'
       href={`/CSH/problems/${route}`}
     >
-      <div className='flex items-start'>
-        <div className='flex justify-between items-center w-full px-6'>
-          <div className='rounded-full bg-purple-500/10 p-2 text-white'>
-            {icon}
-          </div>
-          <ChevronRight/>
+      <div className='flex flex-col items-start'>
+        <div className='rounded-full bg-purple-500/10 p-2 text-white'>
+          {icon}
         </div>
         <div className='space-y-2'>
           <h3 className='text-xl font-semibold text-white'>{title}</h3>
           <p className='text-sm leading-relaxed text-white/70'>{description}</p>
         </div>
+        <ChevronRight/>
       </div>
     </Link>
   );
