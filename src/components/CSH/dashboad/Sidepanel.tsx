@@ -8,9 +8,9 @@ import { CircleGauge, FilePenLine, LogOut } from 'lucide-react';
 function Sidepanel() {
   const pathname = usePathname();
   return (
-    <div className='absolute left-0 top-0 z-20 h-[100svh] w-[15%] border-r-2'>
+    <div className='fixed left-0 top-0 z-20 h-[100svh] w-[15%] border-r-2'>
       <div className='flex h-[20svh] items-center justify-center'>
-        <h2 className='text-lg font-semibold text-white'>IEIF</h2>
+        <h2 className='text-lg font-semibold text-white'>CSH</h2>
       </div>
       <div className='flex h-[30svh] w-full flex-col items-start justify-center px-2'>
         <Link

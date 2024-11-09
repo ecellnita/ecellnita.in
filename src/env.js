@@ -7,6 +7,8 @@ export const env = createEnv({
     API_URL: z.string().url(),
     MONGO_DB_URL: z.string(),
     EMAIL_PASSWORD: z.string(),
+    ACCESS_KEY_ID: z.string(),
+    SECRET_ACCESS_KEY: z.string()
   },
   client: {},
   experimental__runtimeEnv: {},

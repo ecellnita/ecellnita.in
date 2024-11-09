@@ -9,7 +9,9 @@ import { env } from '~/env';
 import { type TeamUpdateType } from '~/components/CSH/form/editform';
 import { type Team } from '~/components/CSH/form/registrationForm';
 
-import { TeamType } from './model';
+import { Idea, IdeaType, TeamType } from './model';
+import { IdeaDataInterface } from '~/components/CSH/dashboad/TeamView';
+import uploadPDF from './uploader';
 
 // Declaring a variable to store the cached database connection
 let cachedConnection: Connection | null = null;
@@ -63,7 +65,18 @@ export const getTeam = async (teamId: string) => {
   } as TeamWithPasswordHash;
 };
 
-const EMAIL = 'ecell.csh2024@gmail.com';
+export const getIdea = async (teamId: string) => {
+  await connectToMongoDB();
+  const idea = await TeamType.findOne({ teamId });
+  if (!idea) {
+    throw new Error('Idea not found');
+  }
+
+  return { success: true, idea: idea };
+};
+
+// const EMAIL = 'ecell.csh2024@gmail.com';
+const EMAIL = 'thetechnova023@gmail.com';
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
@@ -213,3 +226,34 @@ export const editTeam = async (teamId: string, newData: TeamUpdateType) => {
     success: team.acknowledged,
   };
 };
+
+export const submitIdea = async (teamId: string, ideaData: IdeaDataInterface) => {
+  console.log("first: ", ideaData);
+  try {
+    await connectToMongoDB();
+
+    const team = await TeamType.findOne({ teamId });
+    if (!team) {
+      throw new Error('Team not found');
+    }
+
+    const idea = await IdeaType.findOne({ teamId });
+    if(idea){
+      throw new Error('Idea already submitted');
+    }
+
+    const newIdea = new IdeaType({
+      teamId: teamId,
+      problemStatement: ideaData.problemStatement,
+      subProblemStatement: ideaData.subProblemStatement,
+      file: teamId
+    });
+
+    await newIdea.save();
+
+    return JSON.stringify({ teamId, message: 'Idea submitted successfully', success: true });
+  } catch (error) {
+    return JSON.stringify({ error: error, success: false });
+  }
+
+}

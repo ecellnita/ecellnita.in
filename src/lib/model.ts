@@ -17,6 +17,13 @@ export interface ITeam {
   }[];
 }
 
+export interface Idea {
+  teamId: string;
+  problemStatement: string;
+  subProblemStatement?: string;
+  file: string;
+}
+
 export interface ITeamDocument extends ITeam, Document {}
 
 const teamSchema = new mongoose.Schema({
@@ -37,6 +44,19 @@ const teamSchema = new mongoose.Schema({
   ],
 });
 
+const ideaSchema = new mongoose.Schema({
+  teamId: { type: String, unique: true, default: uuidv4 },
+  problemStatement: { type: String, required: true },
+  subProblemStatement: { type: String },
+  file: { type: String, required: true },
+});
+
+export interface IdeaDocument extends Idea, Document {}
+
 // @ts-expect-error we know that it is correct
 export const TeamType: Model<ITeamDocument> =
   mongoose.models.Team ?? mongoose.model('Team', teamSchema);
+
+// @ts-expect-error we know that it is correct
+export const IdeaType: Model<IdeaDocument> = 
+  mongoose.models.Idea ?? mongoose.model('Idea', ideaSchema);
