@@ -80,7 +80,7 @@ const RegisterForm = () => {
   const onSubmit: SubmitHandler<Team> = async (
     values: z.infer<typeof TeamSchema>
   ) => {
-    if(values.members.length < 2) return alert("you should have minimum 2 additional members in your team");
+    // if(values.members.length < 2) return alert("you should have minimum 2 additional members in your team");
     try {
       await register(values);
 
