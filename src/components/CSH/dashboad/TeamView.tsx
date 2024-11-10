@@ -80,10 +80,10 @@ function TeamView(teamDetails: TeamWithPasswordHash, { ideaDetails }) {
 
   return (
     <>
-      <div className='z-40 mt-20 flex w-[85%] flex-col p-8'>
+      <div className='z-40 md:mt-20 flex w-full md:w-[85%] flex-col p-8'>
         <div className='flex items-center justify-between rounded-xl bg-[#0c0c29] p-8'>
           <div>
-            <h1 className='text-4xl font-bold text-white'>
+            <h1 className='text-xl md:text-4xl font-bold text-white'>
               Team: {teamDetails && teamDetails.teamName}
             </h1>
             <p className='mt-4'>
@@ -92,7 +92,7 @@ function TeamView(teamDetails: TeamWithPasswordHash, { ideaDetails }) {
           </div>
           <div className='flex flex-col items-center justify-between'>
             <span className='flex items-center justify-between'>
-              <span className='mr-4 text-xl'>
+              <span className='mr-4 text-lg md:text-xl'>
                 {teamDetails && teamDetails.members.length + 1}
               </span>
               <Users />
@@ -117,9 +117,9 @@ function TeamView(teamDetails: TeamWithPasswordHash, { ideaDetails }) {
             !isIdeaSubmitted &&
             <form
               onSubmit={onSubmitIdea}
-              className='flex w-[50%] flex-col items-center justify-center'
+              className='flex w-full md:w-[50%] flex-col items-center justify-center'
             >
-              <p className='my-4 text-xl font-semibold text-gray-400'>
+              <p className='my-4 text-xl font-semibold text-gray-400 text-center'>
                 Submit your video and presentation here
               </p>
               <div className='my-2 flex w-full flex-col items-start justify-between'>

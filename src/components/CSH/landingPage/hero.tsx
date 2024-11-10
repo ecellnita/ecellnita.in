@@ -9,14 +9,13 @@ export default function Hero() {
   const router = useRouter();
 
   return (
-    <div className='flex h-[40svh] w-full items-center justify-center'>
-      <div className='flex w-[80%] items-center justify-between'>
-        {/* <Image src='/photos/ieif/hero-cyber-graphics.png' alt="hero-cyber-graphics" width={450} height={450} /> */}
+    <div className='flex h-[140svh] md:h-[40svh] w-full items-start md:items-center justify-center'>
+      <div className='flex md:flex-row flex-col w-[80%] items-center justify-between'>
         <div>
           <HeroText />
         </div>
-        <div className='ml-8 flex w-[50%] flex-col items-start justify-between'>
-          <h1 className='mb-2 text-6xl font-bold text-white'>
+        <div className='ml-8 flex w-[95%] md:w-[50%] flex-col items-start justify-between'>
+          <h1 className='mb-2 text-4xl md:text-6xl font-bold text-white'>
             Join The Cyber Security Hackathon
           </h1>
           <p className='mb-6 mt-4'>

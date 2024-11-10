@@ -16,14 +16,14 @@ function Card({ icon, title, description, route }: CardProps) {
       href={`/CSH/problems/${route}`}
     >
       <div className='flex flex-col items-start'>
-        <div className='rounded-full bg-purple-500/10 p-2 text-white'>
-          {icon}
+        <div className='flex justify-between items-center w-full my-2'>
+          <span className='rounded-full bg-purple-500/10 p-2 text-white'>{icon}</span>
+          <span className='rounded-full bg-purple-500/10 p-2 text-white'><ChevronRight/></span>
         </div>
         <div className='space-y-2'>
           <h3 className='text-xl font-semibold text-white'>{title}</h3>
           <p className='text-sm leading-relaxed text-white/70'>{description}</p>
         </div>
-        <ChevronRight/>
       </div>
     </Link>
   );
@@ -70,7 +70,7 @@ export default function ProblemStatements() {
   ];
 
   return (
-    <div className='relative mx-auto max-w-[80%] px-6 py-24'>
+    <div className='relative mx-auto md:max-w-[80%] w-[90%] px-6 py-24 mt-10'>
       <h1 className='mb-16 text-balance text-[clamp(2rem,7vw,5.5rem)] font-bold leading-[1.1] tracking-[-0.02em] text-white/95'>
         Problem Statements
       </h1>

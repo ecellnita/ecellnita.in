@@ -10,8 +10,8 @@ function CSHAbout() {
             </h1>
             
             <div className='flex flex-col justify-between items-center'>
-                <div className='flex justify-between items-center'>
-                    <div className='w-[50%]'>
+                <div className='flex md:flex-row flex-col justify-between items-center'>
+                    <div className='md:w-[50%] w-[90%]'>
                         <h2 className='text-4xl text-white font-semibold my-4'>Understand the Problem</h2>
                         <p className='text-lg'>
                             Understand your assigned problem statement, identifying key cybersecurity challenges and goals. Break it down to plan your approach.
@@ -22,11 +22,11 @@ function CSHAbout() {
                     </div>
                 </div>
 
-                <div className='flex justify-between items-center'>
+                <div className='flex md:flex-row flex-col-reverse justify-between items-center'>
                     <div>
-                        <Image src='/photos/ieif/csh-about-step-2.png' alt='step-1' width={500} height={500} />
+                        <Image src='/photos/ieif/csh-about-step-2.png' alt='step-1' width={450} height={450} />
                     </div>
-                    <div className='w-[50%]'>
+                    <div className='md:w-[50%] w-[90%]'>
                         <h2 className='text-4xl text-white font-semibold my-4'>Team Up and Plan</h2>
                         <p className='text-lg'>
                             Form a team(or you can participate individually too) with diverse skills. Brainstorm, outline strategies, and choose tools to address the problem effectively.
@@ -34,8 +34,8 @@ function CSHAbout() {
                     </div>
                 </div>
 
-                <div className='flex justify-between items-center'>
-                    <div className='w-[50%]'>
+                <div className='flex md:flex-row flex-col justify-between items-center'>
+                    <div className='md:w-[50%] w-[90%]'>
                         <h2 className='text-4xl text-white font-semibold my-4'>Build and Create the Presentation</h2>
                         <p className='text-lg'>
                             Develop your solution while preparing a presentation that highlights your approach, features, and the security impact of your solution.
@@ -47,11 +47,11 @@ function CSHAbout() {
                 </div>
 
 
-                <div className='flex justify-between items-center'>
+                <div className='flex md:flex-row flex-col-reverse justify-between items-center'>
                     <div>
                         <Image src='/photos/ieif/csh-about-step-4.png' alt='step-1' width={500} height={500} />
                     </div>
-                    <div className='w-[50%]'>
+                    <div className='md:w-[50%] w-[90%]'>
                         <h2 className='text-4xl text-white font-semibold my-4'>Submit and Showcase</h2>
                         <p className='text-lg'>
                             Submit your presentation by the deadline. At the finale, demonstrate your solution live to impress the judges and compete for prizes.

@@ -1,8 +1,12 @@
+'use client'
+
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 import Footer from '~/components/CSH/footer';
 
-function page() {
+function Page() {
+  const router = useRouter();
   return (
     <>
       <div className='relative w-full overflow-hidden bg-[#0D0628] bg-cover bg-center'>
@@ -70,6 +74,12 @@ function page() {
                   </p>
                 </div>
               </div>
+              <button
+                className='rounded-lg bg-white px-4 py-2 font-semibold text-gray-700 z-10'
+                onClick={() => router.push('/CSH/login')}
+              >
+                Login now
+              </button>
             </div>
           </div>
         </div>
@@ -79,4 +89,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

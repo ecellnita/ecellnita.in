@@ -20,29 +20,29 @@ export default function HeroText() {
           </h1>
           <span className='text-4xl font-bold text-[#FFA500] sm:text-5xl md:text-8xl'>{`}`}</span>
         </div>
-        <div className='mt-12 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0'>
+        <div className='mt-12 flex flex-col items-start md:items-center justify-center space-y-4 sm:flex-row sm:space-x-8 sm:space-y-0'>
           <div className='flex items-center space-x-2'>
-            <Calendar size={35} className='text-white' />
+            <Calendar className='text-white w-4 md:w-16' />
             <div>
-              <p className='text-lg font-bold'>
+              <p className='text-sm md:text-lg font-bold'>
                 6<sup>TH</sup> NOV
               </p>
               <p className='text-sm font-semibold'>Registration Starts</p>
             </div>
           </div>
           <div className='flex items-center space-x-2'>
-            <Minus size={35} className='rotate-90 text-white' />
+            <Minus className='rotate-90 text-white w-4 md:w-16' />
             <div>
-              <p className='text-lg font-bold'>
+              <p className='text-sm md:text-lg font-bold'>
                 18<sup>TH</sup> NOV
               </p>
               <p className='text-sm font-semibold'>Finale</p>
             </div>
           </div>
           <div className='flex items-center space-x-2'>
-            <MapPin size={35} className='text-white' />
+            <MapPin className='text-white w-4 md:w-16' />
             <div>
-              <p className='text-lg font-bold'>NIT AGARTALA</p>
+              <p className='text-sm md:text-lg font-bold'>NIT AGARTALA</p>
               <p className='text-sm font-semibold'>
                 Jirania, Agartala, Tripura 799046
               </p>

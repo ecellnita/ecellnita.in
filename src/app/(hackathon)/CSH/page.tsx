@@ -10,6 +10,7 @@ import { cn } from '~/lib/utils';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import DITLogo from 'public/photos/logo/dit-logo.png';
 import NITALogo from 'public/photos/logo/nita-logo.png';
+import CyberLogo from 'public/photos/logo/cybersecuritycampaign.png';
 
 import Footer from '~/components/CSH/footer';
 import Hero from '~/components/CSH/landingPage/hero';
@@ -82,7 +83,7 @@ const TracingBeam = ({
               backgroundColor: scrollYProgress.get() > 0 ? 'white' : '#10b981',
               borderColor: scrollYProgress.get() > 0 ? 'white' : '#059669',
             }}
-            className='h-2 w-2  rounded-full border border-neutral-300 bg-white'
+            className='h-2 w-2 rounded-full border border-neutral-300 bg-white'
           />
         </motion.div>
         <svg
@@ -156,7 +157,7 @@ const timelineEntry: TimelineEntry[] = [
     content: `FINALISTS FOUND: The top 5 shall be announced as finalists,  so be ready with your tools and best skills to lock in that win!`,
   },
   {
-    title: '18th Nov',
+    title: '19th Nov',
     content: `Grand Finale: Congratulations to the finalists! In the Grand Finale, top teams must get ready to build their solutions to the given advanced, real-time cybersecurity challenges and present them in front of the panel of experts.`,
   },
 ];
@@ -165,24 +166,33 @@ function page() {
   return (
     <div className='relative w-full overflow-hidden bg-[#0D0628] bg-cover bg-center'>
       <TracingBeam className=''>
-        <div className="relative w-full overflow-hidden bg-[#0D0628] bg-[url('/photos/ieif/ieif-bg.png')] bg-cover bg-center px-8">
-          <div className='mx-auto flex w-[85%] max-w-screen-2xl items-center justify-between pt-12 mb-28'>
-            <div className='flex justify-start items-center'>
-              <Image src={DITLogo} width={128} height={128} alt='DIT Logo' />
-              <div className='ml-4'>
+        <div className="relative w-full overflow-hidden bg-[#0D0628] bg-[url('/photos/ieif/ieif-bg.png')] bg-cover bg-center px-2 md:px-8">
+          <div className='mx-auto flex-col md:flex-row flex w-[95%] md:w-[85%] max-w-screen-2xl items-center justify-between pt-12 mb-28'>
+            <div className='flex justify-start items-center my-4'>
+              <Image src={DITLogo} className='md:w-28 md:h-28 w-12 h-12' alt='DIT Logo' />
+              <div className='ml-4 text-sm md:text-[1rem]'>
                 Supported by <br />
                 Directorate of Information Technology,<br />
                 Govt. of Tripura
               </div>
             </div>
 
-            <div className='flex justify-start items-center'>
-              <div className='mr-4'>
+            <div className='flex justify-start items-center my-4'>
+              <Image src={CyberLogo} className='md:w-44 md:h-28 w-24 h-12' alt='DIT Logo' />
+              {/* <div className='ml-4 text-sm md:text-[1rem]'>
+                Supported by <br />
+                Directorate of Information Technology,<br />
+                Govt. of Tripura
+              </div> */}
+            </div>
+
+            <div className='flex justify-start items-center my-4'>
+              <div className='mr-4 text-sm md:text-[1rem]'>
                 Organized by <br />
                 National Institute of Technology,<br />
                 Agartala
               </div>
-              <Image src={NITALogo} width={128} height={128} alt='NITA Logo' />
+              <Image src={NITALogo} className='md:w-28 md:h-28 w-12 h-12' alt='NITA Logo' />
             </div>
           </div>
           <TracingBeam className=''>
