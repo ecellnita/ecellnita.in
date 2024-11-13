@@ -17,6 +17,7 @@ import Hero from '~/components/CSH/landingPage/hero';
 import ProblemStatements from '~/components/CSH/landingPage/problemStatements';
 import Timeline from '~/components/CSH/landingPage/timeline';
 import CSHAbout from '~/components/CSH/landingPage/about';
+import { saveAs } from 'file-saver';
 
 const TracingBeam = ({
   children,
@@ -149,11 +150,11 @@ const timelineEntry: TimelineEntry[] = [
     content: `Submission of presentation starts`,
   },
   {
-    title: '16th Nov',
+    title: '17th Nov',
     content: `Closing of Registration: The real test begins! Use this opportunity to showcase your problem-solving abilities and creativity in the field of cybersecurity.`,
   },
   {
-    title: '17th Nov',
+    title: '18th Nov',
     content: `FINALISTS FOUND: The top 5 shall be announced as finalists,  so be ready with your tools and best skills to lock in that win!`,
   },
   {
@@ -177,13 +178,9 @@ function page() {
               </div>
             </div>
 
-            <div className='flex justify-start items-center my-4'>
+            <div className='flex flex-col justify-start items-center my-4'>
               <Image src={CyberLogo} className='md:w-44 md:h-28 w-24 h-12' alt='DIT Logo' />
-              {/* <div className='ml-4 text-sm md:text-[1rem]'>
-                Supported by <br />
-                Directorate of Information Technology,<br />
-                Govt. of Tripura
-              </div> */}
+              <span className='underline text-red-500 italic my-2 cursor-pointer' onClick={()=>saveAs('/CSH/poster.png', 'poster.png')}>Download Poster</span>
             </div>
 
             <div className='flex justify-start items-center my-4'>
