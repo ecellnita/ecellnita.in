@@ -10,6 +10,7 @@ import { File, Users } from 'lucide-react';
 import { Label } from '~/components/ui/label';
 import { Button } from '~/components/ui/button';
 import uploadPDF from '~/lib/uploader';
+import { saveAs } from "file-saver";
 
 const problemStatements: string[] = [
   'Cyber Security Hackathon',
@@ -111,6 +112,8 @@ function TeamView(teamDetails: TeamWithPasswordHash, { ideaDetails }) {
             </span>
           </div>
         </div>
+
+        <span className='text-red-600 flex justify-center w-full items-center underline text-lg mt-2 italic cursor-pointer' onClick={()=>saveAs("/CSH/CHS_Idea_PresentationFormat.pdf", "CHS_Idea_PresentationFormat.pdf")}>Download Idea Presentation format here</span>
 
         <div className={`my-10 flex ${isIdeaSubmitted? 'h-[40svh]' : 'h-[70svh]'} flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-600 bg-[#0c0c29] p-8`}>
           {

@@ -149,11 +149,11 @@ const timelineEntry: TimelineEntry[] = [
     content: `Submission of presentation starts`,
   },
   {
-    title: '15th Nov',
+    title: '16th Nov',
     content: `Closing of Registration: The real test begins! Use this opportunity to showcase your problem-solving abilities and creativity in the field of cybersecurity.`,
   },
   {
-    title: '16th Nov',
+    title: '17th Nov',
     content: `FINALISTS FOUND: The top 5 shall be announced as finalists,  so be ready with your tools and best skills to lock in that win!`,
   },
   {
