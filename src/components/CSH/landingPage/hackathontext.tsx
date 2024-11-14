@@ -25,7 +25,7 @@ export default function HeroText() {
             <Calendar className='text-white w-4 md:w-16' />
             <div>
               <p className='text-sm md:text-lg font-bold'>
-                6<sup>TH</sup> NOV
+                7<sup>TH</sup> NOV
               </p>
               <p className='text-sm font-semibold'>Registration Starts</p>
             </div>
