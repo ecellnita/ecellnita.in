@@ -75,7 +75,7 @@ export const getIdea = async (teamId: string) => {
   return { success: true, idea: idea };
 };
 
-const EMAIL = 'ecell.csh2024@gmail.com';
+const EMAIL = 'ecellnita.csh2024@gmail.com';
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
