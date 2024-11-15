@@ -67,9 +67,9 @@ export const getTeam = async (teamId: string) => {
 
 export const getIdea = async (teamId: string) => {
   await connectToMongoDB();
-  const idea = await TeamType.findOne({ teamId });
+  const idea = await IdeaType.findOne({ teamId });
   if (!idea) {
-    throw new Error('Idea not found');
+    return { success: false, error: 'Idea not found' };
   }
 
   return { success: true, idea: idea };

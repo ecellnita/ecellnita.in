@@ -1,9 +1,9 @@
 'use client';
 
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-import { type TeamWithPasswordHash, submitIdea } from '~/lib/actions';
+import { type TeamWithPasswordHash, getIdea, submitIdea } from '~/lib/actions';
 
 import { File, Users } from 'lucide-react';
 
@@ -33,7 +33,7 @@ export interface IdeaDataInterface {
   fileURL: string;
 }
 
-function TeamView(teamDetails: TeamWithPasswordHash, { ideaDetails }) {
+function TeamView(teamDetails: TeamWithPasswordHash) {
   const [isIdeaSubmitted, setIsIdeaSubmitted] = useState<boolean>(false);
   const [ideaData, setIdeaData] = useState<IdeaDataInterface>({
     problemStatement: '',
@@ -79,6 +79,29 @@ function TeamView(teamDetails: TeamWithPasswordHash, { ideaDetails }) {
     }
   };
 
+  const getIdeaDetails = async () => {
+    try {
+      // console.log(values);
+      const team_id = localStorage.getItem('csh_team_id');
+      if (!team_id) {
+        return;
+      }
+      const res = await getIdea(team_id);
+
+      console.log("idea: ", res);
+      if(res.success){
+        setIsIdeaSubmitted(true);
+      }
+    } catch (error) {
+      console.log("idea fetch error: ", error);
+      toast.error(String(error));
+    }
+  };
+
+  useEffect(()=>{
+    void getIdeaDetails();
+  }, []);
+
   return (
     <>
       <div className='z-40 md:mt-20 flex w-full md:w-[85%] flex-col p-8'>
@@ -100,12 +123,12 @@ function TeamView(teamDetails: TeamWithPasswordHash, { ideaDetails }) {
             </span>
             <span className='mt-4'>
               {
-                !ideaDetails && <span className='rounded-2xl bg-red-500 px-3 py-1 text-sm text-white'>
+                !isIdeaSubmitted && <span className='rounded-2xl bg-red-500 px-3 py-1 text-sm text-white'>
                                   not submitted
                                 </span>
               }
               {
-                ideaDetails && <span className='rounded-2xl bg-green-500 px-3 py-1 text-sm text-white'>
+                isIdeaSubmitted && <span className='rounded-2xl bg-green-500 px-3 py-1 text-sm text-white'>
                                   submitted
                                 </span>
               }

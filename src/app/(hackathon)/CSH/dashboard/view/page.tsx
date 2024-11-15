@@ -12,7 +12,6 @@ import Link from 'next/link';
 
 function Page() {
   const [teamDetails, setTeamDetails] = useState<TeamWithPasswordHash>();
-  const [ideaDetails, setIdeaDetails] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getTeamDetails = async () => {
@@ -30,25 +29,8 @@ function Page() {
     }
   };
 
-  const getIdeaDetails = async () => {
-    try {
-      // console.log(values);
-      const team_id = localStorage.getItem('csh_team_id');
-      if (!team_id) {
-        return;
-      }
-      const res = await getIdea(team_id);
-
-      console.log("idea: ", res);
-      setIdeaDetails(res);
-    } catch (error) {
-      toast.error(String(error));
-    }
-  };
-
   useEffect(() => {
     void getTeamDetails();
-    void getIdeaDetails();
   }, []);
 
   if (teamDetails)
@@ -84,7 +66,7 @@ function Page() {
               </div>
             }
           </div>
-          <TeamView {...teamDetails} ideaDetails={ideaDetails} />
+          <TeamView {...teamDetails} />
         </div>
       </>
     );
