@@ -79,7 +79,7 @@ const EMAIL = 'ecellnita.csh2024@gmail.com';
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
-  secure: true,
+  secure: true, 
   auth: {
     user: EMAIL,
     pass: env.EMAIL_PASSWORD,
