@@ -37,7 +37,7 @@ export default function Hero() {
             </button>
             <button
               className='rounded-lg bg-white px-4 py-2 font-semibold text-gray-700 ml-4 z-10'
-              onClick={() => saveAs("/CSH/RulebookCHS.pdf", "RulebookCHS.pdf")}
+              onClick={() => saveAs("/CSH/RulebookCSH.pdf", "RulebookCHS.pdf")}
             >
               Download Rulebook
             </button>

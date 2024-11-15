@@ -11,21 +11,21 @@ export default function Footer() {
         </p>
         <div className='flex gap-4'>
           <Link
-            href='#'
+            href='https://www.linkedin.com/company/ecellnita/posts/?feedView=all'
             className='rounded-full bg-[#1E242E] p-2.5 transition-colors hover:bg-[#1E242E]/80'
           >
             <Linkedin className='h-5 w-5 text-white' />
             <span className='sr-only'>LinkedIn</span>
           </Link>
           <Link
-            href='#'
+            href='https://www.instagram.com/ecellnita?igsh=Z2VhZ20ya2t1NGZz'
             className='rounded-full bg-[#1E242E] p-2.5 transition-colors hover:bg-[#1E242E]/80'
           >
             <Instagram className='h-5 w-5 text-white' />
             <span className='sr-only'>Instagram</span>
           </Link>
           <Link
-            href='#'
+            href='https://twitter.com/ecellnita'
             className='rounded-full bg-[#1E242E] p-2.5 transition-colors hover:bg-[#1E242E]/80'
           >
             <Twitter className='h-5 w-5 text-white' />

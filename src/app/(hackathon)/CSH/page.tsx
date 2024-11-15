@@ -142,7 +142,7 @@ interface TimelineEntry {
 
 const timelineEntry: TimelineEntry[] = [
   {
-    title: '6th Nov',
+    title: '7th Nov',
     content: `Release of problem statements and Starting of Registration: Welcome to the start of an exciting journey! Register your team, review the event guidelines, and familiarize yourself with the hackathon format.`,
   },
   {
