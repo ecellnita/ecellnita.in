@@ -250,8 +250,11 @@ export const submitIdea = async (teamId: string, ideaData: IdeaDataInterface) =>
 
     await newIdea.save();
 
+    console.log("Idea submitted successfully");
+
     return JSON.stringify({ teamId, message: 'Idea submitted successfully', success: true });
   } catch (error) {
+    console.log("can not submit idea from submitIdea: ", error);
     return JSON.stringify({ error: error, success: false });
   }
 

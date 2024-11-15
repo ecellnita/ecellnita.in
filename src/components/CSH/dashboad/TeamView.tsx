@@ -60,7 +60,7 @@ function TeamView(teamDetails: TeamWithPasswordHash, { ideaDetails }) {
     const fileUploadRes = await uploadPDF('csh-ecell', formData, teamId);
     const fileUploadResponse = JSON.parse(fileUploadRes);
 
-    console.log("fileUploadResponse: ", fileUploadResponse);
+    console.log("fileUploadResponse: ", typeof fileUploadResponse);
 
     if(fileUploadResponse.success){
       setIdeaData({ ...ideaData, fileURL: fileUploadResponse.url });
