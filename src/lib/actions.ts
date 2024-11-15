@@ -1,4 +1,4 @@
-'use server';
+'use server'
 
 import * as bcrypt from 'bcrypt';
 import mongoose, { type Connection } from 'mongoose';
