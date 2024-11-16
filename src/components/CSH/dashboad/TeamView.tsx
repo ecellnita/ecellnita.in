@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 
 import { type TeamWithPasswordHash, getIdea, submitIdea } from '~/lib/actions';
 
-import { File, Users } from 'lucide-react';
+import { File, LoaderCircle, Users } from 'lucide-react';
 
 import { Label } from '~/components/ui/label';
 import { Button } from '~/components/ui/button';
@@ -41,9 +41,12 @@ function TeamView(teamDetails: TeamWithPasswordHash) {
     fileURL: ''
   });
   const [ideaFile, setIdeaFile] = useState<File>();
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const onSubmitIdea = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setIsIdeaSubmitted(true);
 
     const teamId = localStorage.getItem('csh_team_id');
     if (!teamId) {
@@ -71,6 +74,7 @@ function TeamView(teamDetails: TeamWithPasswordHash) {
       if (response.success) {
         console.log('Idea submitted successfully');
         setIsIdeaSubmitted(true);
+        setIsSubmitting(false);
       } else {
         console.log('Can not submit idea: ', response.error);
       }
@@ -225,7 +229,7 @@ function TeamView(teamDetails: TeamWithPasswordHash) {
                   className='my-2 flex h-[10svh] w-full cursor-pointer items-center justify-center rounded-md border-2 border-dashed border-white/95 text-[1rem] font-semibold'
                 >
                   {
-                    !ideaFile && <p>Choose PPT</p>
+                    !ideaFile && <p>Choose PPT/PDF</p>
                   }
                   {
                     ideaFile &&  <span className='flex'>
@@ -240,13 +244,18 @@ function TeamView(teamDetails: TeamWithPasswordHash) {
                   }
                   type='file'
                   id='ppt'
-                  accept='application/pdf'
+                  accept='.ppt, .pptx, .pdf'
                   hidden
                   required
                 />
               </div>
-              <Button className='flex w-full cursor-pointer items-center justify-center rounded-xl bg-white px-4 py-2 font-semibold text-gray-800'>
-                Submit
+              <Button disabled={isSubmitting} className={`flex w-full cursor-pointer items-center justify-center rounded-xl ${isSubmitting ? 'bg-gray-400' : 'bg-white'} px-4 py-2 font-semibold text-gray-800`}>
+                {
+                  !isSubmitting && "Submit"
+                }
+                {
+                  isSubmitting && <LoaderCircle className='animate-spin text-xl' />
+                }
               </Button>
             </form>
           }

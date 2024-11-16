@@ -12,6 +12,8 @@ import { type Team } from '~/components/CSH/form/registrationForm';
 import { Idea, IdeaType, TeamType } from './model';
 import { IdeaDataInterface } from '~/components/CSH/dashboad/TeamView';
 import uploadPDF from './uploader';
+import validator from 'validator';
+import dns from 'dns';
 
 // Declaring a variable to store the cached database connection
 let cachedConnection: Connection | null = null;
@@ -96,11 +98,17 @@ export const register = async (team: Team) => {
   console.log(TeamName);
 
   if (leaderEmail) {
-    throw new Error('Leader email already exists');
+    return { success: false, error: 'Leader email already exists' };
   }
   if (TeamName) {
-    throw new Error('Team name already exists');
+    return { success: false, error: 'Team name already exists' };
   }
+
+  if(!validator.isEmail(team.leader.email)){
+    console.log('Invalid email');
+    return { success: false, error: 'Invalid email' };
+  }
+
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(team.leader.password, saltRounds);
   const teamId = uuidv4();
@@ -116,76 +124,94 @@ export const register = async (team: Team) => {
   const domain = team.leader.email.split('@')[1];
 
   if (!domain) {
-    throw new Error('Invalid email');
+    return { success: false, error: 'Invalid email' };
   }
 
-  const mailOptions = {
-    from: EMAIL,
-    to: team.leader.email,
-    subject: 'Registration Successful',
-    html: `
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Registration Successful</title>
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        color: #333333;
-                        background-color: #f8f9fa;
-                        margin: 0;
-                        padding: 20px;
-                    }
-                    .container {
-                        background-color: #ffffff;
-                        padding: 20px;
-                        border-radius: 8px;
-                        max-width: 600px;
-                        margin: 0 auto;
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    }
-                    h1 {
-                        color: #4CAF50;
-                    }
-                    p {
-                        font-size: 16px;
-                        line-height: 1.5;
-                    }
-                    .team-id {
-                        font-weight: bold;
-                        color: #4CAF50;
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="container">
-                    <h1>Congratulations!</h1>
-                    <p>Your registration was successful. Thank you for joining our hackathon event!</p>
-                    <p><strong>Here is your Team Unique ID:</strong> <span class="team-id">${teamId}</span></p>
-                    <p><strong>Team Password:</strong> <span class="team-id">${team.leader.password}</span></p>
-                    <p>Please save this ID for future logins.</p>
-                    <p>We look forward to seeing your innovative solutions!</p>
-                    <br>
-                    <p>Best regards,</p>
-                    <p>Team E-cell, NIT Agartala</p>
-                </div>
-            </body>
-            </html>
-            `,
-  };
 
-  await transporter.sendMail(mailOptions);
+  dns.resolveMx(domain, (err,address)=>{
+    if(err || address.length === 0){
+        return { success: false, error: "Email Address not found!"};
+    }
 
-  return { teamId, message: 'Team created successfully' };
+    const mailOptions = {
+      from: EMAIL,
+      to: team.leader.email,
+      subject: 'Registration Successful',
+      html: `
+              <!DOCTYPE html>
+              <html lang="en">
+              <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Registration Successful</title>
+                  <style>
+                      body {
+                          font-family: Arial, sans-serif;
+                          color: #333333;
+                          background-color: #f8f9fa;
+                          margin: 0;
+                          padding: 20px;
+                      }
+                      .container {
+                          background-color: #ffffff;
+                          padding: 20px;
+                          border-radius: 8px;
+                          max-width: 600px;
+                          margin: 0 auto;
+                          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                      }
+                      h1 {
+                          color: #4CAF50;
+                      }
+                      p {
+                          font-size: 16px;
+                          line-height: 1.5;
+                      }
+                      .team-id {
+                          font-weight: bold;
+                          color: #4CAF50;
+                      }
+                  </style>
+              </head>
+              <body>
+                  <div class="container">
+                      <h1>Congratulations!</h1>
+                      <p>Your registration was successful. Thank you for joining our hackathon event!</p>
+                      <p><strong>Here is your Team Unique ID:</strong> <span class="team-id">${teamId}</span></p>
+                      <p><strong>Team Password:</strong> <span class="team-id">${team.leader.password}</span></p>
+                      <p>Please save this ID for future logins.</p>
+                      <p>We look forward to seeing your innovative solutions!</p>
+                      <br>
+                      <p>Best regards,</p>
+                      <p>Team E-cell, NIT Agartala</p>
+                  </div>
+              </body>
+              </html>
+              `,
+    };
+  
+    transporter.sendMail(mailOptions,(err,info)=>{
+      if(err){
+          return {success: false, error:"Error in sending mail."};
+      }
+      return {success: true, message:"Email validated and confirmation sent"};
+    });
+
+  })
+
+  
+
+  return { success: true, teamId, message: 'Team created successfully' };
 };
 
 export const login = async (teamId: string, password: string) => {
   await connectToMongoDB();
   const team = await TeamType.findOne({ teamId });
   if (!team) {
-    throw new Error('Team not found');
+    return {
+      success: false,
+      error: 'Team not found',
+    };
   }
 
   const isPasswordValid = await bcrypt.compare(
@@ -194,10 +220,14 @@ export const login = async (teamId: string, password: string) => {
   );
 
   if (!isPasswordValid) {
-    throw new Error('Invalid password');
+    return {
+      success: false,
+      error: 'Invalid password',
+    };
   }
 
   return {
+    success: true,
     message: 'Login successful',
     teamId: team.teamId,
   };

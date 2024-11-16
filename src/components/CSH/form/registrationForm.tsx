@@ -17,7 +17,6 @@ import { TeamSchema } from '~/lib/zod';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoaderCircle, Trash2 } from 'lucide-react';
-import { toast } from 'sonner';
 import type * as z from 'zod';
 
 import {
@@ -32,6 +31,8 @@ import {
 // Components
 import { Button } from '../../ui/button';
 import { Input } from '../../ui/input';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export type Team = z.infer<typeof TeamSchema>;
 
@@ -82,20 +83,24 @@ const RegisterForm = () => {
   ) => {
     // if(values.members.length < 2) return alert("you should have minimum 2 additional members in your team");
     try {
-      await register(values);
+      const result = await register(values);
 
-      toast.success('Team created successfully');
-      router.push('login');
-      form.reset({
-        teamName: '',
-        leader: {
-          name: '',
-          email: '',
-          contact: '',
-          password: '',
-        },
-        members: [],
-      });
+      if(result.success){
+        toast.success('Team created successfully');
+        router.push('login');
+        form.reset({
+          teamName: '',
+          leader: {
+            name: '',
+            email: '',
+            contact: '',
+            password: '',
+          },
+          members: [],
+        });
+      }else{
+        toast.error(result.error);
+      }
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'An error occurred');
     }
@@ -127,202 +132,205 @@ const RegisterForm = () => {
   };
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit, onError)}
-        className='space-y-3'
-      >
-        <FormField
-          control={form.control}
-          name='teamName'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-white'>Team Name</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder='Case Crackers'
-                  {...field}
-                  disabled={form.formState.isSubmitting}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <div className='pt-6 text-lg text-white'>Team Leader Details</div>
-        <FormField
-          control={form.control}
-          name='leader.name'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-white'>Name</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder='John Doe'
-                  {...field}
-                  disabled={form.formState.isSubmitting}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name='leader.email'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-white'>E-mail</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder='john.doe@gmail.com'
-                  {...field}
-                  disabled={form.formState.isSubmitting}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name='leader.contact'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-white'>Phone</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder='8973518316'
-                  {...field}
-                  disabled={form.formState.isSubmitting}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name='leader.password'
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className='text-white'>Password</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder='Password'
-                  {...field}
-                  disabled={form.formState.isSubmitting}
-                  type='password'
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {fields.map((item, index) => (
-          <React.Fragment key={index}>
-            <div className='flex flex-row items-center gap-2 pt-6'>
-              <div className='text-lg text-white'>Team Member {index + 1}</div>
-              <Button
-                size='icon'
-                onClick={() => remove(index)}
-                variant='ghost'
-                className='hover:bg-[#0A0A0A]'
-                disabled={form.formState.isSubmitting}
-              >
-                <Trash2 className='text-neutral-300' />
-              </Button>
-            </div>
-
-            <FormField
-              control={form.control}
-              name={`members.${index}.name`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className='text-white'>Name</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder={`Team member ${index + 1} name`}
-                      {...field}
-                      disabled={form.formState.isSubmitting}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name={`members.${index}.email`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className='text-white'>E-mail</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder={`member${index + 1}@gmail.com`}
-                      {...field}
-                      disabled={form.formState.isSubmitting}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name={`members.${index}.contact`}
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className='text-white'>Phone</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder={`Team member ${index + 1} Phone`}
-                      {...field}
-                      disabled={form.formState.isSubmitting}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </React.Fragment>
-        ))}
-        <Button
-          variant='outline'
-          className='w-full bg-[#0A0A0A] text-white hover:bg-[#0A0A0A] hover:text-white'
-          type='button'
-          onClick={onAddMember}
-          disabled={form.formState.isSubmitting}
+    <>
+      <ToastContainer />
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit, onError)}
+          className='space-y-3'
         >
-          Add Team Member
-        </Button>
+          <FormField
+            control={form.control}
+            name='teamName'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='text-white'>Team Name</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder='Case Crackers'
+                    {...field}
+                    disabled={form.formState.isSubmitting}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <div className='pt-6 text-lg text-white'>Team Leader Details</div>
+          <FormField
+            control={form.control}
+            name='leader.name'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='text-white'>Name</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder='John Doe'
+                    {...field}
+                    disabled={form.formState.isSubmitting}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='leader.email'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='text-white'>E-mail</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder='john.doe@gmail.com'
+                    {...field}
+                    disabled={form.formState.isSubmitting}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='leader.contact'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='text-white'>Phone</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder='8973518316'
+                    {...field}
+                    disabled={form.formState.isSubmitting}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='leader.password'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className='text-white'>Password</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder='Password'
+                    {...field}
+                    disabled={form.formState.isSubmitting}
+                    type='password'
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <div className='flex justify-center py-12'>
+          {fields.map((item, index) => (
+            <React.Fragment key={index}>
+              <div className='flex flex-row items-center gap-2 pt-6'>
+                <div className='text-lg text-white'>Team Member {index + 1}</div>
+                <Button
+                  size='icon'
+                  onClick={() => remove(index)}
+                  variant='ghost'
+                  className='hover:bg-[#0A0A0A]'
+                  disabled={form.formState.isSubmitting}
+                >
+                  <Trash2 className='text-neutral-300' />
+                </Button>
+              </div>
+
+              <FormField
+                control={form.control}
+                name={`members.${index}.name`}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='text-white'>Name</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder={`Team member ${index + 1} name`}
+                        {...field}
+                        disabled={form.formState.isSubmitting}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name={`members.${index}.email`}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='text-white'>E-mail</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder={`member${index + 1}@gmail.com`}
+                        {...field}
+                        disabled={form.formState.isSubmitting}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name={`members.${index}.contact`}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='text-white'>Phone</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder={`Team member ${index + 1} Phone`}
+                        {...field}
+                        disabled={form.formState.isSubmitting}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </React.Fragment>
+          ))}
           <Button
-            variant='secondary'
-            type='submit'
-            className='w-full bg-white text-gray-600'
+            variant='outline'
+            className='w-full bg-[#0A0A0A] text-white hover:bg-[#0A0A0A] hover:text-white'
+            type='button'
+            onClick={onAddMember}
             disabled={form.formState.isSubmitting}
           >
-            {form.formState.isSubmitting ? (
-              <LoaderCircle className='animate-spin text-xl' />
-            ) : (
-              'Submit'
-            )}
+            Add Team Member
           </Button>
-        </div>
-        <span className='flex items-center justify-center text-white'>
-          Already registered?{' '}
-          <Link
-            href='login'
-            className='mx-2 cursor-pointer text-white underline'
-          >
-            Login
-          </Link>
-        </span>
-      </form>
-    </Form>
+
+          <div className='flex justify-center py-12'>
+            <Button
+              variant='secondary'
+              type='submit'
+              className='w-full bg-white text-gray-600'
+              disabled={form.formState.isSubmitting}
+            >
+              {form.formState.isSubmitting ? (
+                <LoaderCircle className='animate-spin text-xl' />
+              ) : (
+                'Submit'
+              )}
+            </Button>
+          </div>
+          <span className='flex items-center justify-center text-white'>
+            Already registered?{' '}
+            <Link
+              href='login'
+              className='mx-2 cursor-pointer text-white underline'
+            >
+              Login
+            </Link>
+          </span>
+        </form>
+      </Form>
+    </>
   );
 };
 

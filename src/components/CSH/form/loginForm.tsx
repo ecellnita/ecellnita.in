@@ -16,7 +16,6 @@ import { LoginTeamSchema } from '~/lib/zod';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoaderCircle } from 'lucide-react';
-import { toast } from 'sonner';
 import type * as z from 'zod';
 
 import {
@@ -31,6 +30,8 @@ import {
 // Components
 import { Button } from '../../ui/button';
 import { Input } from '../../ui/input';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export type Team = z.infer<typeof LoginTeamSchema>;
 
@@ -52,13 +53,19 @@ function LoginForm() {
   ) => {
     try {
       const res = await login(values.teamId, values.password);
-      toast.success('Logged in successfully');
-      localStorage.setItem('csh_team_id', res.teamId);
-      form.reset({
-        teamId: '',
-        password: '',
-      });
-      router.push('dashboard/view');
+
+      console.log("login response: ", res)
+      if(res.success){
+        toast.success('Logged in successfully');
+        localStorage.setItem('csh_team_id', res.teamId);
+        form.reset({
+          teamId: '',
+          password: '',
+        });
+        router.push('dashboard/view');
+      }else{
+        toast.error(res.error);
+      }
     } catch (error) {
       alert(error instanceof Error ? error.message : 'An error occurred');
       toast.error(String(error));
@@ -92,6 +99,7 @@ function LoginForm() {
 
   return (
     <div>
+      <ToastContainer/>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit, onError)}
