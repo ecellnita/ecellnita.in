@@ -193,6 +193,9 @@ function page() {
             </div>
           </div>
           <TracingBeam className=''>
+            <div className='w-full flex justify-center items-center mb-28'>
+              <p className='italic text-red-500 text-xl cursor-pointer'>Registration and Idea Submission has been extended upto 9 am of 18-11-2024</p>
+            </div>
             <Hero />
             <CSHAbout/>
             <ProblemStatements />
