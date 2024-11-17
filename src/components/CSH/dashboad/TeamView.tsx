@@ -264,6 +264,10 @@ function TeamView(teamDetails: TeamWithPasswordHash) {
             isIdeaSubmitted &&
             <p className='text-white/85 text-lg font-semibold'>Idea Submitted</p>
           }
+
+          {/* {
+            <p className='text-white/85 text-lg font-semibold'>Idea submission is closed</p>
+          } */}
         </div>
       </div>
     </>
