@@ -155,7 +155,7 @@ const timelineEntry: TimelineEntry[] = [
   },
   {
     title: '18th Nov',
-    content: `FINALISTS FOUND: The top 5 shall be announced as finalists,  so be ready with your tools and best skills to lock in that win!`,
+    content: `FINALISTS FOUND: The top teams shall be announced as finalists,  so be ready with your tools and best skills to lock in that win!`,
   },
   {
     title: '19th Nov',
