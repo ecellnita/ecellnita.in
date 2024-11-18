@@ -143,7 +143,7 @@ function TeamView(teamDetails: TeamWithPasswordHash) {
         <span className='text-red-600 flex justify-center w-full items-center underline text-lg mt-2 italic cursor-pointer' onClick={()=>saveAs("/CSH/CHS_Idea_PresentationFormat.pdf", "CHS_Idea_PresentationFormat.pdf")}>Download Idea Presentation format here</span>
 
         <div className={`my-10 flex ${isIdeaSubmitted? 'h-[40svh]' : 'h-[70svh]'} flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-600 bg-[#0c0c29] p-8`}>
-          {
+          {/* {
             !isIdeaSubmitted &&
             <form
               onSubmit={onSubmitIdea}
@@ -258,16 +258,16 @@ function TeamView(teamDetails: TeamWithPasswordHash) {
                 }
               </Button>
             </form>
-          }
-
-          {
-            isIdeaSubmitted &&
-            <p className='text-white/85 text-lg font-semibold'>Idea Submitted</p>
-          }
+          } */}
 
           {/* {
-            <p className='text-white/85 text-lg font-semibold'>Idea submission is closed</p>
+            isIdeaSubmitted &&
+            <p className='text-white/85 text-lg font-semibold'>Idea Submitted</p>
           } */}
+
+          {
+            <p className='text-white/85 text-lg font-semibold'>Idea submission is closed</p>
+          }
         </div>
       </div>
     </>

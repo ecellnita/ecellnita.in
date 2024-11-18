@@ -13,12 +13,12 @@ function page() {
         </h1>
         <div className='mx-auto my-8 w-[40%] px-4 '>
           {/* Registration Form */}
-          <RegisterForm />
+          {/* <RegisterForm /> */}
 
           {/* Registration clodes */}
-          {/* <div className='flex w-full justify-center items-center border-2 h-[20svh] border-dashed rounded-2xl border-gray-400'>
+          <div className='flex w-full justify-center items-center border-2 h-[20svh] border-dashed rounded-2xl border-gray-400'>
             <h2 className='font-semibold text-lg'><Link href='/CSH/login' className='underline'>Login</Link> if you have registered already</h2>
-          </div> */}
+          </div>
         </div>
       </div>
     </>
