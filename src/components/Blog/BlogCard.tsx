@@ -12,7 +12,7 @@ const BlogCard = ({id, image, title, content, author, date }) => {
   };
 
   return (
-    <div className="max-w-sm bg-gray-800 border border-gray-950 rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:cursor-pointer" onClick={handleClick}>
+    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:cursor-pointer" onClick={handleClick}>
       <Image
         className="w-full h-48 object-cover"
         src={image}
@@ -22,10 +22,10 @@ const BlogCard = ({id, image, title, content, author, date }) => {
       />
       <div className="p-4">
         <h2 className="text-xl font-bold text-gray-800 mb-2">{title}</h2>
-        <p className="text-white text-sm mb-4">
+        <p className="text-gray-700 text-sm mb-4">
           {content.length > 100 ? `${content.substring(0, 100)}...` : content}
         </p>
-        <div className="flex items-center justify-between text-sm text-gray-300">
+        <div className="flex items-center justify-between text-sm text-gray-600">
           <span>By: <span className="font-medium">{author}</span></span>
           <span>{date}</span>
         </div>
