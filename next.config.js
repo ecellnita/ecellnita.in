@@ -5,12 +5,8 @@ const config = {
   images: {
     remotePatterns: [
       {
-        hostname: 'i.ibb.co',
-        protocol: 'https',
-      },
-      {
-        hostname: 'drive.google.com',
-        protocol: 'https',
+        protocol: "https",
+        hostname: "**",
       },
     ],
   },
