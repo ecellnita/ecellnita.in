@@ -280,7 +280,7 @@ export const members: MemberProps[] = [
   {
     name: 'Kumar Anubhav',
     team: 'events',
-    position: 'Senior Core Content Member',
+    position: 'Senior Core Event Member',
     image: '13.jpeg',
     socials: {
       name: 'email',
@@ -295,6 +295,16 @@ export const members: MemberProps[] = [
     socials: {
       name: 'email',
       link: 'mailto:rastogidhruv28@gmail.com',
+    },
+  },
+  {
+    name: 'Printi Kumari',
+    team: 'events',
+    position: 'Senior Core Event Member',
+    image: '15.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:pratnadeepbanik010@gmail.com',
     },
   },
 //   {
