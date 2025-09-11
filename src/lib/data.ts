@@ -189,7 +189,7 @@ export const members: MemberProps[] = [
   {
     name: 'Anshu Pal',
     team: 'tech',
-    position: 'Senior Core Member',
+    position: 'Senior Core Social Media Member',
     image: '4.jpeg',
     socials: {
       name: 'email',
