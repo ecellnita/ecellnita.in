@@ -77,8 +77,8 @@ export const executives: ExecutiveProps[] = [
     image: '2.jpeg',
     position: 'General Secretary',
     socials: {
-      name: 'twitter',
-      link: 'https://twitter.com/seeessh',
+      name: 'email',
+      link: 'mailto:seeessh@gmail.com',
     },
   },
   {
@@ -207,9 +207,9 @@ export const members: MemberProps[] = [
     },
   },
   {
-    name: 'Anjali',
-    team: 'design',
-    position: 'Senior Core Design Team',
+    name: 'Sourasnata Debnath',
+    team: 'social-media',
+    position: 'Senior Core Social Media Member',
     image: '6.jpeg',
     socials: {
       name: 'email',
@@ -302,6 +302,16 @@ export const members: MemberProps[] = [
     team: 'events',
     position: 'Senior Core Event Member',
     image: '15.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:pratnadeepbanik010@gmail.com',
+    },
+  },
+  {
+    name: 'Anjali',
+    team: 'design',
+    position: 'Senior Core Design Member',
+    image: '16.jpeg',
     socials: {
       name: 'email',
       link: 'mailto:pratnadeepbanik010@gmail.com',
