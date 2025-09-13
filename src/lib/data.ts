@@ -64,7 +64,7 @@ export interface TeamMember {
 
 export const executives: ExecutiveProps[] = [
   {
-    name: 'President',
+    name: 'Ashutosh Singh',
     image: '1.jpeg',
     position: 'President',
     socials: {
@@ -73,7 +73,7 @@ export const executives: ExecutiveProps[] = [
     },
   },
   {
-    name: 'General Secretary',
+    name: 'Yash Raj',
     image: '2.jpeg',
     position: 'General Secretary',
     socials: {
