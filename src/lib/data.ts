@@ -317,6 +317,16 @@ export const members: MemberProps[] = [
       link: 'mailto:pratnadeepbanik010@gmail.com',
     },
   },
+  {
+    name: 'Rinki',
+    team: 'tech',
+    position: 'Senior Core Tech Member',
+    image: '17.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:srijadas653@gmail.com',
+    },
+  },
 //   {
 //     name: 'Soumyadeep Rakshit',
 //     team: 'events',
