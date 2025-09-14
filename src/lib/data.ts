@@ -74,7 +74,7 @@ export const executives: ExecutiveProps[] = [
   },
   {
     name: 'Goparaju Manasa',
-    image: '4.jpeg',
+    image: '2.jpeg',
     position: 'Vice President',
     socials: {
       name: 'email',
@@ -84,7 +84,7 @@ export const executives: ExecutiveProps[] = [
   
   {
     name: 'Yash Raj',
-    image: '2.jpeg',
+    image: '4.jpeg',
     position: 'General Secretary ',
     socials: {
       name: 'email',
@@ -93,7 +93,7 @@ export const executives: ExecutiveProps[] = [
   },
   {
     name: 'Dishank Patil',
-    image: '5.jpeg',
+    image: '3.jpeg',
     position: 'General Secretary',
     socials: {
       name: 'email',
@@ -102,7 +102,7 @@ export const executives: ExecutiveProps[] = [
   },
   {
     name: 'Debaditya Roy',
-    image: '3.jpeg',
+    image: '5.jpeg',
     position: 'Head Of Operations',
     socials: {
       name: 'email',
