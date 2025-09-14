@@ -77,7 +77,7 @@ function page() {
           E-mail: <a href='https://www.gmail.com'>ecellnita@gmail.com</a>
         </p>
         <p className='text-center font-serif text-lg leading-relaxed'>
-          Phone: +91 6291564243
+          Phone: +91 6234 567890
         </p>
         <p className='text-center font-serif text-lg leading-relaxed'>
           Address: National Institute of Technology Agartala Jirania , West

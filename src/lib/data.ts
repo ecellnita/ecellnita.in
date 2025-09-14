@@ -69,25 +69,7 @@ export const executives: ExecutiveProps[] = [
     position: 'President',
     socials: {
       name: 'email',
-      link: 'mailto:saadhvibhukya2323@gmail.com',
-    },
-  },
-  {
-    name: 'Yash Raj',
-    image: '2.jpeg',
-    position: 'General Secretary',
-    socials: {
-      name: 'email',
-      link: 'mailto:seeessh@gmail.com',
-    },
-  },
-  {
-    name: 'Debaditya Roy',
-    image: '3.jpeg',
-    position: 'Head Of Operations',
-    socials: {
-      name: 'email',
-      link: 'mailto:reachnancy246@gmail.com',
+      link: 'mailto:ashutoshsingh9010@gmail.com',
     },
   },
   {
@@ -96,7 +78,17 @@ export const executives: ExecutiveProps[] = [
     position: 'Vice President',
     socials: {
       name: 'email',
-      link: 'mailto:21uei017.adityakanu@gmail.com',
+      link: 'mailto:yashrajsomu16@gmail.com',
+    },
+  },
+  
+  {
+    name: 'Yash Raj',
+    image: '2.jpeg',
+    position: 'General Secretary ',
+    socials: {
+      name: 'email',
+      link: 'mailto:manasa.g233@gmail.com',
     },
   },
   {
@@ -105,7 +97,16 @@ export const executives: ExecutiveProps[] = [
     position: 'General Secretary',
     socials: {
       name: 'email',
-      link: 'mailto:hemantshankar9595@gmail.com',
+      link: 'mailto:dishankpatil360@gmail.com',
+    },
+  },
+  {
+    name: 'Debaditya Roy',
+    image: '3.jpeg',
+    position: 'Head Of Operations',
+    socials: {
+      name: 'email',
+      link: 'mailto:debadityaroy99@gmail.com',
     },
   },
   {
@@ -114,7 +115,7 @@ export const executives: ExecutiveProps[] = [
     position: 'Startup and Development Lead',
     socials: {
       name: 'email',
-      link: 'mailto:krishnachandak.official@gmail.com',
+      link: 'mailto:satabdigoswami87@gmail.com',
     },
   },
   {
@@ -123,16 +124,16 @@ export const executives: ExecutiveProps[] = [
     position: 'Finance Secretary',
     socials: {
       name: 'email',
-      link: 'mailto:madhumoi0266@gmail.com',
+      link: 'mailto:shubhamgnirala@gmail.com',
     },
   },
   {
     name: 'Shilpi Rani',
     image: '8.jpeg',
-    position: 'Media and Public Relations Lead',
+    position: 'General Manager, Media & Communications',
     socials: {
       name: 'email',
-      link: 'mailto:pranjalt7869@gmail.com',
+      link: 'mailto:theshilpisingh1@gmail.com',
     },
   },
   {
@@ -141,18 +142,36 @@ export const executives: ExecutiveProps[] = [
     position: 'Head of External Affairs',
     socials: {
       name: 'email',
-      link: 'mailto:pranjalt7869@gmail.com',
+      link: 'mailto:navyathalluri2022@gmail.com',
     },
   },
   {
     name: 'Sourav Das',
     image: '10.jpeg',
-    position: 'General Manager',
+    position: 'General Manager, Design & Tech',
     socials: {
       name: 'email',
-      link: 'mailto:pranjalt7869@gmail.com',
+      link: 'mailto:dass55139@gmail.com',
     },
   },
+  // {
+  //   name: 'Sourav Das',
+  //   image: '10.jpeg',
+  //   position: 'General Manager',
+  //   socials: {
+  //     name: 'email',
+  //     link: 'mailto:dass55139@gmail.com',
+  //   },
+  // },
+  // {
+  //   name: 'Sourav Das',
+  //   image: '10.jpeg',
+  //   position: 'General Manager',
+  //   socials: {
+  //     name: 'email',
+  //     link: 'mailto:dass55139@gmail.com',
+  //   },
+  // }
 ];
 
 export const members: MemberProps[] = [
