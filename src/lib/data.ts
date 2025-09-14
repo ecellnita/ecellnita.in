@@ -78,7 +78,7 @@ export const executives: ExecutiveProps[] = [
     position: 'Vice President',
     socials: {
       name: 'email',
-      link: 'mailto:yashrajsomu16@gmail.com',
+      link: 'mailto:manasa.g233@gmail.com',
     },
   },
   
@@ -88,7 +88,7 @@ export const executives: ExecutiveProps[] = [
     position: 'General Secretary ',
     socials: {
       name: 'email',
-      link: 'mailto:manasa.g233@gmail.com',
+      link: 'mailto:yashrajsomu16@gmail.com',
     },
   },
   {
@@ -152,6 +152,24 @@ export const executives: ExecutiveProps[] = [
     socials: {
       name: 'email',
       link: 'mailto:dass55139@gmail.com',
+    },
+  },
+  {
+    name: 'Sohan Sabbana',
+    image: '11.jpeg',
+    position: 'Head of Alumni Affairs',
+    socials: {
+      name: 'email',
+      link: 'mailto:sohan.sabbana@gmail.com',
+    },
+  },
+  {
+    name: 'Aditya pandey',
+    image: '12.jpeg',
+    position: 'Head of Corporate Relations',
+    socials: {
+      name: 'email',
+      link: 'mailto:adityapandeyy0802@gmail.com',
     },
   },
   // {
@@ -253,7 +271,7 @@ export const members: MemberProps[] = [
     image: '8.jpg',
     socials: {
       name: 'email',
-      link: 'mailto:janmeshjoshi1510@gmail.com',
+      link: 'mailto:mondalsampurna012@gmail.com',
     },
   },
   {
@@ -273,7 +291,7 @@ export const members: MemberProps[] = [
     image: '10.png',
     socials: {
       name: 'email',
-      link: 'mailto:bodhagt18@gmail.com',
+      link: 'mailto:rimjhimgupta8112002@gmail.com',
     },
   },
   {
