@@ -205,12 +205,12 @@ export const members: MemberProps[] = [
   },
   {
     name: 'Aemili',
-    team: 'startup',
-    position: 'Senior Core Startup Member',
+    team: 'design',
+    position: 'Senior Core Design Member',
     image: '2.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:nababratadeb5@gmail.com',
+      link: 'mailto:aemili21@gmail.com',
     },
   },
   {
@@ -220,37 +220,37 @@ export const members: MemberProps[] = [
     image: '3.jpg',
     socials: {
       name: 'email',
-      link: 'mailto:pratnadeepbanik010@gmail.com',
+      link: 'mailto:srishantyadav@outlook.com',
     },
   },
   {
     name: 'Anshu Pal',
     team: 'social-media',
-    position: 'Senior Core Social Media Member',
+    position: 'Senior Core PR Member',
     image: '4.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:rohitnori11@gmail.com',
+      link: 'mailto:connectwithme.anshupal@gmail.com',
     },
   },
   {
     name: 'Shubham Kumar Jha',
     team: 'social-media',
-    position: 'Senior Core Social Media Member',
+    position: 'Senior Core PR Member',
     image: '5.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:tanmay.25ts@gmail.com',
+      link: 'mailto:shubhamkumarjha065@gmail.com',
     },
   },
   {
     name: 'Sourasnata Debnath',
     team: 'social-media',
-    position: 'Senior Core Social Media Member',
+    position: 'Senior Core Content Member',
     image: '6.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:triasharoy.ecell@gmail.com',
+      link: 'mailto:debnathsourasnata@gmail.com',
     },
   },
   {
@@ -260,7 +260,7 @@ export const members: MemberProps[] = [
     image: '7.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:srijadas653@gmail.com',
+      link: 'mailto:swaparup36@gmail.com',
     },
   },
   
@@ -281,7 +281,7 @@ export const members: MemberProps[] = [
     image: '9.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:dharunshankarr@gmail.com',
+      link: 'mailto:ayushanand3008@gmail.com',
     },
   },
   {
@@ -301,7 +301,7 @@ export const members: MemberProps[] = [
     image: '11.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:debaratihati.ce@gmail.com',
+      link: 'mailto:someshbabaofficial@gmail.com',
     },
   },
   {
@@ -311,7 +311,7 @@ export const members: MemberProps[] = [
     image: '12.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:rastogidhruv28@gmail.com',
+      link: 'mailto:ap0063872@gmail.com',
     },
   },
   {
@@ -321,7 +321,7 @@ export const members: MemberProps[] = [
     image: '13.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:rastogidhruv28@gmail.com',
+      link: 'mailto:anubhav2608@gmail.com',
     },
   },
   {
@@ -331,7 +331,7 @@ export const members: MemberProps[] = [
     image: '14.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:rastogidhruv28@gmail.com',
+      link: 'mailto:ankitkumar11@gmail.com',
     },
   },
   {
@@ -341,7 +341,7 @@ export const members: MemberProps[] = [
     image: '15.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:pratnadeepbanik010@gmail.com',
+      link: 'mailto:kumariprinti891@gmail.com',
     },
   },
   {
@@ -351,7 +351,7 @@ export const members: MemberProps[] = [
     image: '16.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:pratnadeepbanik010@gmail.com',
+      link: 'mailto:anjaliiprajapati04@gmail.com',
     },
   },
   {
@@ -361,7 +361,7 @@ export const members: MemberProps[] = [
     image: '17.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:srijadas653@gmail.com',
+      link: 'mailto:jhunjhunwalarinki@gmail.com',
     },
   },
 //   {
