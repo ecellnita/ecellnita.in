@@ -8,7 +8,7 @@ export function IdeathonPage() {
       </h2>
       <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
         Ideathon details will go here: problem statements, rules, timeline, teams,
-        and submission links.
+        and submission link.
       </p>
     </section>
   );
