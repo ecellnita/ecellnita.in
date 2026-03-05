@@ -4,10 +4,7 @@ import type { Metadata } from 'next';
 import { SmoothScrollProvider } from '~/providers';
 import '~/styles/globals.css';
 
-const sfPro = localFont({
-  src: '../../public/SF Pro.ttf',
-  variable: '--font-sans',
-});
+
 
 export const metadata: Metadata = {
   title: 'E-Cell NIT-A',
@@ -47,7 +44,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`font-sans ${sfPro.variable}`}>
+      <body className={`font-sans`}>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
