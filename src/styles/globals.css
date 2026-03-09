@@ -139,3 +139,16 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.card-grad1 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at 20% 20%, rgba(134, 91, 255, 0.25), transparent 60%);
+  pointer-events: none;
+}
+
+.card-grad2 {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at 80% 80%, rgba(2, 3, 28, 0.35), transparent 60%);
+  pointer-events: none;
+}
