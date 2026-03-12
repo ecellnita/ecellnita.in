@@ -1,276 +1,83 @@
 'use client';
 
-import React, { FormEvent, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useEffect, useState } from 'react';
 
-import { type TeamWithPasswordHash, getIdea, submitIdea } from '~/lib/actions';
+import { type TeamWithPasswordHash, getIdea } from '~/lib/actions';
 
-import { File, LoaderCircle, Users } from 'lucide-react';
-
-import { Label } from '~/components/ui/label';
-import { Button } from '~/components/ui/button';
-import uploadPDF from '~/lib/uploader';
-import { saveAs } from "file-saver";
-
-const problemStatements: string[] = [
-  'Cyber Security Hackathon',
-  'Innovation for Clean Homes and Cities',
-  'Low-Water Use Public Toilets with Digital Monitoring and Control Systems',
-  '“May I Help You” Robot Design',
-  'Open Innovation Challenge',
-];
-
-const subProblemStatements: string[] = [
-  'PS-1: Decrypting the Caesar Cipher',
-  'PS-2: Examination of a Keystroke Logger',
-  'PS-3: Network Packet Sniffing and Protection',
-  'PS-4: Developing Defenses Against SQL Injection',
-];
-
-export interface IdeaDataInterface {
-  problemStatement: string;
-  subProblemStatement: string;
-  fileURL: string;
-}
+import { Users } from 'lucide-react';
+import { saveAs } from 'file-saver';
+import { toast } from 'sonner';
 
 function TeamView(teamDetails: TeamWithPasswordHash) {
   const [isIdeaSubmitted, setIsIdeaSubmitted] = useState<boolean>(false);
-  const [ideaData, setIdeaData] = useState<IdeaDataInterface>({
-    problemStatement: '',
-    subProblemStatement: '',
-    fileURL: ''
-  });
-  const [ideaFile, setIdeaFile] = useState<File>();
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
-  const onSubmitIdea = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    setIsIdeaSubmitted(true);
-
-    const teamId = localStorage.getItem('csh_team_id');
-    if (!teamId) {
-      console.log('team id not found, login again');
-      return;
-    }
-
-
-    const formData = new FormData();
-    if(!ideaFile) return console.log("file not provided");
-
-    formData.append('file', ideaFile);
-
-    const fileUploadRes = await uploadPDF('csh-ecell', formData, teamId);
-    const fileUploadResponse = JSON.parse(fileUploadRes);
-
-    console.log("fileUploadResponse: ", typeof fileUploadResponse);
-
-    if(fileUploadResponse.success){
-      setIdeaData({ ...ideaData, fileURL: fileUploadResponse.url });
-
-      const res = await submitIdea(teamId, ideaData);
-
-      const response = JSON.parse(res);
-      if (response.success) {
-        console.log('Idea submitted successfully');
-        setIsIdeaSubmitted(true);
-        setIsSubmitting(false);
-      } else {
-        console.log('Can not submit idea: ', response.error);
-      }
-    }else{
-      console.log("Can not upload file: ", fileUploadResponse.error);
-    }
-  };
 
   const getIdeaDetails = async () => {
     try {
-      // console.log(values);
-      const team_id = localStorage.getItem('csh_team_id');
-      if (!team_id) {
+      const teamId = localStorage.getItem('csh_team_id');
+      if (!teamId) {
         return;
       }
-      const res = await getIdea(team_id);
 
-      console.log("idea: ", res);
-      if(res.success){
+      const res = await getIdea(teamId);
+      if (res.success) {
         setIsIdeaSubmitted(true);
       }
     } catch (error) {
-      console.log("idea fetch error: ", error);
-      toast.error(String(error));
+      const message = error instanceof Error ? error.message : 'Failed to fetch idea details';
+      toast.error(message);
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     void getIdeaDetails();
   }, []);
 
   return (
-    <>
-      <div className='z-40 md:mt-20 flex w-full md:w-[85%] flex-col p-8'>
-        <div className='flex items-center justify-between rounded-xl bg-[#0c0c29] p-8'>
-          <div>
-            <h1 className='text-xl md:text-4xl font-bold text-white'>
-              Team: {teamDetails && teamDetails.teamName}
-            </h1>
-            <p className='mt-4'>
-              Team Leader: {teamDetails && teamDetails.leader.name}
-            </p>
-          </div>
-          <div className='flex flex-col items-center justify-between'>
-            <span className='flex items-center justify-between'>
-              <span className='mr-4 text-lg md:text-xl'>
-                {teamDetails && teamDetails.members.length + 1}
-              </span>
-              <Users />
-            </span>
-            <span className='mt-4'>
-              {
-                !isIdeaSubmitted && <span className='rounded-2xl bg-red-500 px-3 py-1 text-sm text-white'>
-                                  not submitted
-                                </span>
-              }
-              {
-                isIdeaSubmitted && <span className='rounded-2xl bg-green-500 px-3 py-1 text-sm text-white'>
-                                  submitted
-                                </span>
-              }
-            </span>
-          </div>
+    <div className='z-40 flex w-full flex-col p-8 md:mt-20 md:w-[85%]'>
+      <div className='flex items-center justify-between rounded-xl bg-[#0c0c29] p-8'>
+        <div>
+          <h1 className='text-xl font-bold text-white md:text-4xl'>
+            Team: {teamDetails.teamName}
+          </h1>
+          <p className='mt-4'>Team Leader: {teamDetails.leader.name}</p>
         </div>
-
-        <span className='text-red-600 flex justify-center w-full items-center underline text-lg mt-2 italic cursor-pointer' onClick={()=>saveAs("/CSH/CHS_Idea_PresentationFormat.pdf", "CHS_Idea_PresentationFormat.pdf")}>Download Idea Presentation format here</span>
-
-        <div className={`my-10 flex ${isIdeaSubmitted? 'h-[40svh]' : 'h-[70svh]'} flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-600 bg-[#0c0c29] p-8`}>
-          {/* {
-            !isIdeaSubmitted &&
-            <form
-              onSubmit={onSubmitIdea}
-              className='flex w-full md:w-[50%] flex-col items-center justify-center'
-            >
-              <p className='my-4 text-xl font-semibold text-gray-400 text-center'>
-                Submit your video and presentation here
-              </p>
-              <div className='my-2 flex w-full flex-col items-start justify-between'>
-                <Label
-                  htmlFor='problemStatement'
-                  className='my-2 text-[1rem] font-semibold'
-                >
-                  Choose Your Problem Statement
-                </Label>
-                <select
-                  name='problemStatement'
-                  id='problemStatement'
-                  className='w-full rounded-md border-2 border-white/90 bg-[#0c0c29] px-4 py-2'
-                  value={ideaData.problemStatement}
-                  onChange={(e) =>
-                    setIdeaData({ ...ideaData, problemStatement: e.target.value })
-                  }
-                  required
-                >
-                  <option className='bg-[#0c0c29]'>
-                    Choose Problem Satement
-                  </option>
-                  {problemStatements.map((problemStatement, index) => {
-                    return (
-                      <option
-                        key={index}
-                        value={problemStatement}
-                        className='bg-[#0c0c29]'
-                      >
-                        {problemStatement}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
-              {ideaData.problemStatement === 'Cyber Security Hackathon' && (
-                <div className='flex w-full flex-col items-start justify-between'>
-                  <Label
-                    htmlFor='problemSubStatement'
-                    className='my-2 text-[1rem] font-semibold'
-                  >
-                    Choose Your Sub Problem Statement
-                  </Label>
-                  <select
-                    name='problemSubStatement'
-                    id='problemSubStatement'
-                    className='w-full rounded-md border-2 border-white/90 bg-[#0c0c29] px-4 py-2'
-                    value={ideaData.subProblemStatement}
-                    onChange={(e) =>
-                      setIdeaData({
-                        ...ideaData,
-                        subProblemStatement: e.target.value,
-                      })
-                    }
-                    required
-                  >
-                    <option className='bg-[#0c0c29]'>
-                      Choose Sub Problem Satement
-                    </option>
-                    {subProblemStatements.map((subProblemStatement, index) => {
-                      return (
-                        <option
-                          key={index}
-                          value={subProblemStatement}
-                          className='bg-[#0c0c29]'
-                        >
-                          {subProblemStatement}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              )}
-              <div className='my-4 flex w-full flex-col items-start justify-between'>
-                <Label
-                  htmlFor='ppt'
-                  className='my-2 flex h-[10svh] w-full cursor-pointer items-center justify-center rounded-md border-2 border-dashed border-white/95 text-[1rem] font-semibold'
-                >
-                  {
-                    !ideaFile && <p>Choose PPT/PDF</p>
-                  }
-                  {
-                    ideaFile &&  <span className='flex'>
-                                        <File className='mr-2'/>
-                                        {ideaFile.name}
-                                      </span>
-                  }
-                </Label>
-                <input
-                  onChange={(e) =>
-                    setIdeaFile(e.target.files[0])
-                  }
-                  type='file'
-                  id='ppt'
-                  accept='.ppt, .pptx, .pdf'
-                  hidden
-                  required
-                />
-              </div>
-              <Button disabled={isSubmitting} className={`flex w-full cursor-pointer items-center justify-center rounded-xl ${isSubmitting ? 'bg-gray-400' : 'bg-white'} px-4 py-2 font-semibold text-gray-800`}>
-                {
-                  !isSubmitting && "Submit"
-                }
-                {
-                  isSubmitting && <LoaderCircle className='animate-spin text-xl' />
-                }
-              </Button>
-            </form>
-          } */}
-
-          {/* {
-            isIdeaSubmitted &&
-            <p className='text-white/85 text-lg font-semibold'>Idea Submitted</p>
-          } */}
-
-          {
-            <p className='text-white/85 text-lg font-semibold'>Idea submission is closed</p>
-          }
+        <div className='flex flex-col items-center justify-between'>
+          <span className='flex items-center justify-between'>
+            <span className='mr-4 text-lg md:text-xl'>
+              {teamDetails.members.length + 1}
+            </span>
+            <Users />
+          </span>
+          <span className='mt-4'>
+            {!isIdeaSubmitted && (
+              <span className='rounded-2xl bg-red-500 px-3 py-1 text-sm text-white'>
+                not submitted
+              </span>
+            )}
+            {isIdeaSubmitted && (
+              <span className='rounded-2xl bg-green-500 px-3 py-1 text-sm text-white'>
+                submitted
+              </span>
+            )}
+          </span>
         </div>
       </div>
-    </>
+
+      <span
+        className='mt-2 flex w-full cursor-pointer items-center justify-center text-lg italic text-red-600 underline'
+        onClick={() =>
+          saveAs('/CSH/CHS_Idea_PresentationFormat.pdf', 'CHS_Idea_PresentationFormat.pdf')
+        }
+      >
+        Download Idea Presentation format here
+      </span>
+
+      <div
+        className={`my-10 flex ${isIdeaSubmitted ? 'h-[40svh]' : 'h-[70svh]'} flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-600 bg-[#0c0c29] p-8`}
+      >
+        <p className='text-lg font-semibold text-white/85'>Idea submission is closed</p>
+      </div>
+    </div>
   );
 }
 

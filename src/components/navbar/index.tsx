@@ -68,6 +68,7 @@ const Navbar = () => {
   const onClick = (link: (typeof navLinks)[number]) => {
     if (link.href === '/' && pathname === '/') {
       scrollTo('#hero');
+      setIsOpen(false);
       return;
     }
     if (link.href.startsWith('http')) {
@@ -76,10 +77,11 @@ const Navbar = () => {
       return;
     }
     if (link.href.startsWith('#')) {
-      if (pathname !== '/') {
-        router.push('/');
+      if (pathname === '/') {
+        scrollTo(link.href);
+      } else {
+        router.push(`/${link.href}`);
       }
-      scrollTo(link.href);
     } else {
       router.push(link.href);
     }

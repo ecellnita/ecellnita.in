@@ -1,8 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 
-import RegisterForm from '~/components/CSH/form/registrationForm';
-
 function page() {
   return (
     <>

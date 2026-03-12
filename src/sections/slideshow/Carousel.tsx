@@ -1,9 +1,9 @@
 'use client';
 
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { type ReactNode, useCallback, useEffect, useState } from 'react';
 
 interface CarouselProps {
-  children: ReactNode[];
+  children: ReactNode;
   autoSlide?: boolean;
   autoSlideInterval?: number;
 }
@@ -13,29 +13,34 @@ const Carousel: React.FC<CarouselProps> = ({
   autoSlide = false,
   autoSlideInterval = 3000,
 }) => {
+  const slideList = React.Children.toArray(slides);
   const [curr, setCurr] = useState(0);
 
-  const prev = () =>
-    setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1));
-
-  const next = () =>
-    setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
+  const next = useCallback(
+    () =>
+      setCurr((prev) => (prev === slideList.length - 1 ? 0 : prev + 1)),
+    [slideList.length]
+  );
 
   useEffect(() => {
-    if (!autoSlide) return;
+    if (!autoSlide || slideList.length <= 1) return;
     const slideInterval = setInterval(() => {
       next();
     }, autoSlideInterval);
     return () => clearInterval(slideInterval);
-  }, []);
+  }, [autoSlide, autoSlideInterval, next, slideList.length]);
 
   return (
     <div className='relative flex h-[40svh] overflow-hidden md:h-[80svh]'>
       <div
-        className='flex scroll-smooth transition-transform duration-1000'
-        style={{ transform: `translateX(-${curr * 50}%)` }}
+        className='flex h-full w-full transition-transform duration-700 ease-out'
+        style={{ transform: `translateX(-${curr * 100}%)` }}
       >
-        {slides}
+        {slideList.map((slide, index) => (
+          <div key={index} className='h-full w-full flex-shrink-0'>
+            {slide}
+          </div>
+        ))}
       </div>
       {/* <div className="absolute inset-0 flex items-center justify-between p-4">
                 <button onClick={prev} className='p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white'>

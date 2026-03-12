@@ -20,14 +20,14 @@ function page() {
           </h1>
         </div>
         <h2 className='mx-auto max-w-screen-lg p-4 text-center font-serif text-3xl leading-relaxed text-white'>
-          "Inspiring Ideas, Stories, and Strategies for Tomorrow's Leaders."
+          &quot;Inspiring Ideas, Stories, and Strategies for Tomorrow&apos;s Leaders.&quot;
         </h2>
         <p className=' mx-auto max-w-screen-lg p-4 text-center font-serif text-lg leading-relaxed text-white'>
           The Entrepreneurial Horizon is your gateway to exploring the limitless
           possibilities of innovation and enterprise. With a focus on inspiring
           stories, insightful analyses, and actionable advice, this blog
           captures the essence of entrepreneurship in a dynamic world. Whether
-          you're a budding visionary or a seasoned leader, *The Entrepreneurial
+          you&apos;re a budding visionary or a seasoned leader, *The Entrepreneurial
           Horizon* offers a platform to navigate challenges, celebrate
           successes, and envision the future of business with clarity and
           purpose.
