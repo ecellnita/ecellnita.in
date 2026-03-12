@@ -29,6 +29,10 @@ const navLinks = [
     href: '/events',
   },
   {
+    label: 'StartupKumbh',
+    href: '/startupkumbh',
+  },
+  {
     label: 'Team',
     href: '/team',
   },
@@ -66,6 +70,11 @@ const Navbar = () => {
       scrollTo('#hero');
       return;
     }
+    if (link.href.startsWith('http')) {
+      window.location.href = link.href;
+      setIsOpen(false);
+      return;
+    }
     if (link.href.startsWith('#')) {
       if (pathname !== '/') {
         router.push('/');
@@ -100,7 +109,7 @@ const Navbar = () => {
             }
           />
 
-          <div className='hidden w-full max-w-sm flex-row items-center gap-4 md:flex'>
+          <div className='hidden w-full max-w-2xl flex-row items-center gap-2 md:flex lg:gap-4'>
             {navLinks.map((link) => (
               <Button
                 key={link.label}
