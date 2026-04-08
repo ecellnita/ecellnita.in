@@ -158,175 +158,145 @@ export const executives: ExecutiveProps[] = [
 ];
 
 export const members: MemberProps[] = [
+  
   {
-    name: 'Satyam Kumar Kesarwani',
-    team: 'tech',
-    position: 'Senior Core Tech Member',
-    image: '1.jpeg',
-    socials: {
-      name: 'email',
-      link: 'mailto:satyamkesarwani2020@gmail.com',
-    },
-  },
-  {
-    name: 'Aemili',
+    name: 'Arghajyoti Malakar',
     team: 'design',
     position: 'Senior Core Design Member',
     image: '2.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:aemili21@gmail.com',
+      link: 'mailto:arghajyotimalakar123@gmail.com',
     },
   },
   {
-    name: 'Srishant Kumar',
-    team: 'design',
-    position: 'Senior Core Design Member',
-    image: '3.jpg',
-    socials: {
-      name: 'email',
-      link: 'mailto:srishantyadav@outlook.com',
-    },
-  },
-  {
-    name: 'Anshu Pal',
+    name: 'Maan Singh',
     team: 'social-media',
     position: 'Senior Core PR Member',
+    image: '3.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:maansimaan02@gmail.com',
+    },
+  },
+  {
+    name: 'Joydeepa Banik',
+    team: 'content',
+    position: 'Senior Core Content Member',
     image: '4.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:connectwithme.anshupal@gmail.com',
+      link: 'mailto:bnaikjoydeepa7442@gmail.com',
     },
   },
   {
-    name: 'Shubham Kumar Jha',
+    name: 'Ujjwal Narayan',
     team: 'social-media',
     position: 'Senior Core PR Member',
     image: '5.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:shubhamkumarjha065@gmail.com',
+      link: 'mailto:24uec044ujjwalnarayan@gmail.com',
     },
   },
   {
-    name: 'Sourasnata Debnath',
-    team: 'social-media',
-    position: 'Senior Core Content Member',
+    name: 'Priyanka Kumari',
+    team: 'tech',
+    position: 'Senior Core Tech Member',
     image: '6.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:debnathsourasnata@gmail.com',
+      link: 'mailto:priyanka06kumari0403@gmail.com',
     },
   },
   {
-    name: 'Swaparup Mukherjee',
-    team: 'tech',
-    position: 'Senior Core Tech Member',
+    name: 'Anshika Debnath',
+    team: 'social-media',
+    position: 'Senior Core PR Member',
     image: '7.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:swaparup36@gmail.com',
-    },
-  },
-
-  {
-    name: 'Sampurna Mondal',
-    team: 'content',
-    position: 'Senior Core Content Member',
-    image: '8.jpg',
-    socials: {
-      name: 'email',
-      link: 'mailto:mondalsampurna012@gmail.com',
+      link: 'mailto:anshikadebnath2005@gmail.com',
     },
   },
   {
-    name: 'Ayush Anand',
-    team: 'content',
-    position: 'Senior Core Content Member',
-    image: '9.jpeg',
-    socials: {
-      name: 'email',
-      link: 'mailto:ayushanand3008@gmail.com',
-    },
-  },
-  {
-    name: 'Rimjhim Gupta',
-    team: 'finance',
-    position: 'Senior Core Finance Member',
-    image: '10.png',
-    socials: {
-      name: 'email',
-      link: 'mailto:rimjhimgupta8112002@gmail.com',
-    },
-  },
-  {
-    name: 'Somesh Raj',
-    team: 'social-media',
-    position: 'Senior Core Social Media Member',
-    image: '11.jpeg',
-    socials: {
-      name: 'email',
-      link: 'mailto:someshbabaofficial@gmail.com',
-    },
-  },
-  {
-    name: 'Anurag Pandey',
-    team: 'alumni',
-    position: 'Senior Core Alumni Member',
-    image: '12.jpeg',
-    socials: {
-      name: 'email',
-      link: 'mailto:ap0063872@gmail.com',
-    },
-  },
-  {
-    name: 'Kumar Anubhav',
-    team: 'events',
-    position: 'Senior Core Event Member',
-    image: '13.jpeg',
-    socials: {
-      name: 'email',
-      link: 'mailto:anubhav2608@gmail.com',
-    },
-  },
-  {
-    name: 'Ankit kumar',
-    team: 'all',
-    position: 'Senior Core Tech Member',
-    image: '14.jpeg',
-    socials: {
-      name: 'email',
-      link: 'mailto:ankitkumar11@gmail.com',
-    },
-  },
-  {
-    name: 'Printi Kumari',
-    team: 'events',
-    position: 'Senior Core Event Member',
-    image: '15.jpeg',
-    socials: {
-      name: 'email',
-      link: 'mailto:kumariprinti891@gmail.com',
-    },
-  },
-  {
-    name: 'Anjali',
+    name: 'Nancy Bajpai',
     team: 'design',
     position: 'Senior Core Design Member',
-    image: '16.jpeg',
+    image: '8.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:anjaliiprajapati04@gmail.com',
+      link: 'mailto:nancybajpai07@gmail.com',
     },
   },
   {
-    name: 'Rinki',
+    name: 'Abhishek Tentiwala',
     team: 'tech',
     position: 'Senior Core Tech Member',
     image: '17.jpeg',
     socials: {
       name: 'email',
-      link: 'mailto:jhunjhunwalarinki@gmail.com',
+      link: 'mailto:atentiwala@gmail.com',
+    },
+  },
+  {
+    name: 'Saksham Vishnoi',
+    team: 'content',
+    position: 'Senior Core Content Member',
+    image: '9.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:sakshamvishnoi03@gmail.com',
+    },
+  },
+  {
+    name: 'Kajal Kumari',
+    team: 'social-media',
+    position: 'Senior Core PR Member',
+    image: '10.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:kajalkchaubey@gmail.com',
+    },
+  },
+  {
+    name: 'Ratnadip',
+    team: 'design',
+    position: 'Senior Core Design Member',
+    image: '11.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:ratnadipdas2005@gmail.com',
+    },
+  },
+  {
+    name: 'Aditya Kumar',
+    team: 'tech',
+    position: 'Senior Core Tech Member',
+    image: '12.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:adityakumarnita@gmail.com',
+    },
+  },
+  {
+    name: 'Himanshu Patidar',
+    team: 'social-media',
+    position: 'Senior Core PR Member',
+    image: '13.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:himanshupatidar4002@gmail.com',
+    },
+  },
+  {
+    name: 'Arjun Shivhare',
+    team: 'finance',
+    position: 'Senior Core Finance Member',
+    image: '14.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:itslifearjun@gmail.com',
     },
   },
   //   {
