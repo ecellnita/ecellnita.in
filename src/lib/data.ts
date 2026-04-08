@@ -64,132 +64,97 @@ export interface TeamMember {
 
 export const executives: ExecutiveProps[] = [
   {
-    name: 'Ashutosh Singh',
+    name: 'Shubham Kumar Jha',
     image: '1.jpeg',
     position: 'President',
     socials: {
       name: 'email',
-      link: 'mailto:ashutoshsingh9010@gmail.com',
+      link: 'mailto:shubhamjha.ecellnita@gmail.com',
     },
   },
   {
-    name: 'Goparaju Manasa',
-    image: '2.jpeg',
-    position: 'Vice President',
-    socials: {
-      name: 'email',
-      link: 'mailto:manasa.g233@gmail.com',
-    },
-  },
-  
-  {
-    name: 'Yash Raj',
-    image: '4.jpeg',
-    position: 'General Secretary ',
-    socials: {
-      name: 'email',
-      link: 'mailto:yashrajsomu16@gmail.com',
-    },
-  },
-  {
-    name: 'Dishank Patil',
-    image: '3.jpeg',
-    position: 'General Secretary',
-    socials: {
-      name: 'email',
-      link: 'mailto:dishankpatil360@gmail.com',
-    },
-  },
-  {
-    name: 'Debaditya Roy',
-    image: '5.jpeg',
-    position: 'Head Of Operations',
-    socials: {
-      name: 'email',
-      link: 'mailto:debadityaroy99@gmail.com',
-    },
-  },
-  {
-    name: 'Satabdi Goswami',
-    image: '6.jpeg',
-    position: 'Startup and Development Lead',
-    socials: {
-      name: 'email',
-      link: 'mailto:satabdigoswami87@gmail.com',
-    },
-  },
-  {
-    name: 'Shubham Kumar',
-    image: '7.jpeg',
-    position: 'Finance Secretary',
-    socials: {
-      name: 'email',
-      link: 'mailto:shubhamgnirala@gmail.com',
-    },
-  },
-  {
-    name: 'Shilpi Rani',
-    image: '8.jpeg',
-    position: 'General Manager, Media & Communications',
-    socials: {
-      name: 'email',
-      link: 'mailto:theshilpisingh1@gmail.com',
-    },
-  },
-  {
-    name: 'Navya Sri',
+    name: 'Rimjhim Gupta',
     image: '9.jpeg',
-    position: 'Head of External Affairs',
+    position: 'Vice - President',
     socials: {
       name: 'email',
-      link: 'mailto:navyathalluri2022@gmail.com',
+      link: 'mailto:rimjhim.ecell.nita@gmail.com',
     },
   },
   {
-    name: 'Sourav Das',
-    image: '10.jpeg',
-    position: 'General Manager, Design & Tech',
+    name: 'Srishant Kumar',
+    image: '6.jpeg',
+    position: 'GS',
     socials: {
       name: 'email',
-      link: 'mailto:dass55139@gmail.com',
+      link: 'mailto:Srishant@zohomail.in',
     },
   },
   {
-    name: 'Sohan Sabbana',
-    image: '11.jpeg',
+    name: 'Anjali Prajapati',
+    image: '2.jpeg',
+    position: 'Head of Design',
+    socials: {
+      name: 'email',
+      link: 'mailto:anjaliiprajapati04@gmail.com',
+    },
+  },
+  {
+    name: 'Satyam Kesarwani',
+    image: '3.jpeg',
+    position: 'Director Of Technical Operations',
+    socials: {
+      name: 'email',
+      link: 'mailto:satyamkesarwani2020@gmail.com',
+    },
+  },
+  {
+    name: 'Sourasnata Debnath',
+    image: '4.jpeg',
+    position: 'Head of Technical Content & Board of Directors',
+    socials: {
+      name: 'email',
+      link: 'mailto:debnathsourasnata@gmail.com',
+    },
+  },
+  {
+    name: 'Ayush Anand',
+    image: '5.jpeg',
+    position: 'Financial Secretary',
+    socials: {
+      name: 'email',
+      link: 'mailto:ayushanand3008@gmail.com',
+    },
+  },
+
+  {
+    name: 'Rinki Jhunjhunwala',
+    image: '7.jpeg',
     position: 'Head of Alumni Affairs',
     socials: {
       name: 'email',
-      link: 'mailto:sohan.sabbana@gmail.com',
+      link: 'mailto:jhunjhunwalarinki@gmail.com',
     },
   },
   {
-    name: 'Aditya pandey',
-    image: '12.jpeg',
-    position: 'Head of Corporate Relations',
+    name: 'Somesh Raj',
+    image: '8.jpeg',
+    position: 'Media & Communication Head',
     socials: {
       name: 'email',
-      link: 'mailto:adityapandeyy0802@gmail.com',
+      link: 'mailto:sombabaofficial@gmail.com',
     },
   },
-  // {
-  //   name: 'Sourav Das',
-  //   image: '10.jpeg',
-  //   position: 'General Manager',
-  //   socials: {
-  //     name: 'email',
-  //     link: 'mailto:dass55139@gmail.com',
-  //   },
-  // },
-  // {
-  //   name: 'Sourav Das',
-  //   image: '10.jpeg',
-  //   position: 'General Manager',
-  //   socials: {
-  //     name: 'email',
-  //     link: 'mailto:dass55139@gmail.com',
-  //   },
-  // }
+
+  {
+    name: 'Printi',
+    image: '10.jpeg',
+    position: 'Startup and Development Lead',
+    socials: {
+      name: 'email',
+      link: 'mailto:kumariprinti891@gmail.com',
+    },
+  },
 ];
 
 export const members: MemberProps[] = [
@@ -263,7 +228,7 @@ export const members: MemberProps[] = [
       link: 'mailto:swaparup36@gmail.com',
     },
   },
-  
+
   {
     name: 'Sampurna Mondal',
     team: 'content',
@@ -364,234 +329,234 @@ export const members: MemberProps[] = [
       link: 'mailto:jhunjhunwalarinki@gmail.com',
     },
   },
-//   {
-//     name: 'Soumyadeep Rakshit',
-//     team: 'events',
-//     position: 'Event Lead',
-//     image: '13.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:soumyadeep280@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Keshav Agrawal',
-//     team: 'alumni',
-//     position: 'Head of Alumni Affairs',
-//     image: '14.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:keshavagrawal9471408042@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Soumyajit Das',
-//     team: 'startup',
-//     position: 'Startup Development Lead',
-//     image: '15.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:soumyajitdhoni@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Prakhar Saxena',
-//     team: 'finance',
-//     position: 'Finance Team Lead',
-//     image: '16.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:pks8958saxena@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Anwesha Das',
-//     team: 'social-media',
-//     position: 'Social media and PR lead',
-//     image: '17.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:anweshadas314@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Arinima Gupta',
-//     team: 'content',
-//     position: 'Content Lead',
-//     image: '18.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:arinimagupta17@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Akhini Debbarma',
-//     team: 'content',
-//     position: 'Core Content Team Member',
-//     image: '19.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:akhinidebbarma20@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Ankit Patnaik',
-//     team: 'events',
-//     position: 'Events Team Lead',
-//     image: '20.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:ankit.123patnaik123@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Sumit Sharma',
-//     team: 'social-media',
-//     position: 'PR Lead',
-//     image: '21.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:sharmasumit25929@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Vedant Chainani',
-//     team: 'tech',
-//     position: 'Tech Team Member',
-//     image: '32.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:vedantchainani1084@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Aditya pandey',
-//     team: 'social-media',
-//     position: 'Social Media Team Member',
-//     image: '22.png',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:adityapandeyy0802@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Debaditya Roy',
-//     team: 'design',
-//     position: 'Design Team Member',
-//     image: '23.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:debadityaroy99@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Navya Sri Thalluri',
-//     team: 'social-media',
-//     position: 'PR Team Member',
-//     image: '24.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:navyathalluri2022@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Shubham Kumar',
-//     team: 'content',
-//     position: 'Content Team Member',
-//     image: '25.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:shubhamgnirala@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Shilpi Rani',
-//     team: 'design',
-//     position: 'Design Team Member',
-//     image: '26.jpeg',
-//     socials: {
-//       name: 'linkedin',
-//       link: 'https://www.linkedin.com/in/shilpi-singh-52183b251',
-//     },
-//   },
-//   {
-//     name: 'Goparaju Manasa',
-//     team: 'content',
-//     position: 'Content Team Member',
-//     image: '27.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:manasa.g233@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Ashutosh Singh',
-//     team: 'content',
-//     position: 'Content Team Member',
-//     image: '28.jpeg',
-//     socials: {
-//       name: 'twitter',
-//       link: 'https://twitter.com/connect_to_mars',
-//     },
-//   },
-//   {
-//     name: 'Sourav Das',
-//     team: 'design',
-//     position: 'Design Team Member',
-//     image: '29.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:dass55139@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Sohan sabbana',
-//     team: 'tech',
-//     position: 'Tech Team Member',
-//     image: '30.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:sohan.sabbana@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Yash Raj',
-//     team: 'design',
-//     position: 'Design Team Member',
-//     image: '31.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:yashrajsomu16@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Dishank Patil',
-//     team: 'tech',
-//     position: 'Tech Team Member',
-//     image: '33.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:dishankjp05@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Siddhanth Sethi',
-//     team: 'tech',
-//     position: 'Tech Team Member',
-//     image: '35.jpeg',
-//     socials: {
-//       name: 'email',
-//       link: 'mailto:siddhanth1105@gmail.com',
-//     },
-//   },
-//   {
-//     name: 'Satabdi Goswami',
-//     team: 'tech',
-//     position: 'Tech Team Member',
-//     image: '34.jpeg',
-//     socials: {
-//       name: 'linkedin',
-//       link: 'https://www.linkedin.com/in/satabdi-goswami-271903256/',
-//     },
-//   },
+  //   {
+  //     name: 'Soumyadeep Rakshit',
+  //     team: 'events',
+  //     position: 'Event Lead',
+  //     image: '13.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:soumyadeep280@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Keshav Agrawal',
+  //     team: 'alumni',
+  //     position: 'Head of Alumni Affairs',
+  //     image: '14.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:keshavagrawal9471408042@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Soumyajit Das',
+  //     team: 'startup',
+  //     position: 'Startup Development Lead',
+  //     image: '15.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:soumyajitdhoni@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Prakhar Saxena',
+  //     team: 'finance',
+  //     position: 'Finance Team Lead',
+  //     image: '16.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:pks8958saxena@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Anwesha Das',
+  //     team: 'social-media',
+  //     position: 'Social media and PR lead',
+  //     image: '17.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:anweshadas314@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Arinima Gupta',
+  //     team: 'content',
+  //     position: 'Content Lead',
+  //     image: '18.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:arinimagupta17@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Akhini Debbarma',
+  //     team: 'content',
+  //     position: 'Core Content Team Member',
+  //     image: '19.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:akhinidebbarma20@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Ankit Patnaik',
+  //     team: 'events',
+  //     position: 'Events Team Lead',
+  //     image: '20.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:ankit.123patnaik123@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Sumit Sharma',
+  //     team: 'social-media',
+  //     position: 'PR Lead',
+  //     image: '21.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:sharmasumit25929@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Vedant Chainani',
+  //     team: 'tech',
+  //     position: 'Tech Team Member',
+  //     image: '32.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:vedantchainani1084@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Aditya pandey',
+  //     team: 'social-media',
+  //     position: 'Social Media Team Member',
+  //     image: '22.png',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:adityapandeyy0802@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Debaditya Roy',
+  //     team: 'design',
+  //     position: 'Design Team Member',
+  //     image: '23.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:debadityaroy99@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Navya Sri Thalluri',
+  //     team: 'social-media',
+  //     position: 'PR Team Member',
+  //     image: '24.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:navyathalluri2022@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Shubham Kumar',
+  //     team: 'content',
+  //     position: 'Content Team Member',
+  //     image: '25.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:shubhamgnirala@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Shilpi Rani',
+  //     team: 'design',
+  //     position: 'Design Team Member',
+  //     image: '26.jpeg',
+  //     socials: {
+  //       name: 'linkedin',
+  //       link: 'https://www.linkedin.com/in/shilpi-singh-52183b251',
+  //     },
+  //   },
+  //   {
+  //     name: 'Goparaju Manasa',
+  //     team: 'content',
+  //     position: 'Content Team Member',
+  //     image: '27.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:manasa.g233@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Ashutosh Singh',
+  //     team: 'content',
+  //     position: 'Content Team Member',
+  //     image: '28.jpeg',
+  //     socials: {
+  //       name: 'twitter',
+  //       link: 'https://twitter.com/connect_to_mars',
+  //     },
+  //   },
+  //   {
+  //     name: 'Sourav Das',
+  //     team: 'design',
+  //     position: 'Design Team Member',
+  //     image: '29.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:dass55139@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Sohan sabbana',
+  //     team: 'tech',
+  //     position: 'Tech Team Member',
+  //     image: '30.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:sohan.sabbana@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Yash Raj',
+  //     team: 'design',
+  //     position: 'Design Team Member',
+  //     image: '31.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:yashrajsomu16@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Dishank Patil',
+  //     team: 'tech',
+  //     position: 'Tech Team Member',
+  //     image: '33.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:dishankjp05@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Siddhanth Sethi',
+  //     team: 'tech',
+  //     position: 'Tech Team Member',
+  //     image: '35.jpeg',
+  //     socials: {
+  //       name: 'email',
+  //       link: 'mailto:siddhanth1105@gmail.com',
+  //     },
+  //   },
+  //   {
+  //     name: 'Satabdi Goswami',
+  //     team: 'tech',
+  //     position: 'Tech Team Member',
+  //     image: '34.jpeg',
+  //     socials: {
+  //       name: 'linkedin',
+  //       link: 'https://www.linkedin.com/in/satabdi-goswami-271903256/',
+  //     },
+  //   },
 ];
