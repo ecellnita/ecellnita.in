@@ -16,10 +16,6 @@ export const Teams = [
     key: 'content',
   },
   {
-    name: 'Events Team',
-    key: 'events',
-  },
-  {
     name: 'Finance Team',
     key: 'finance',
   },
