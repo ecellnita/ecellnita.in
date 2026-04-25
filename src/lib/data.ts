@@ -84,7 +84,7 @@ export const executives: ExecutiveProps[] = [
   {
     name: 'Srishant Kumar',
     image: '6.jpeg',
-    position: 'GS',
+    position: 'General Secretary',
     socials: {
       name: 'email',
       link: 'mailto:Srishant@zohomail.in',
@@ -93,28 +93,10 @@ export const executives: ExecutiveProps[] = [
   {
     name: 'Anshu Pal',
     image: '14.jpeg',
-    position: 'General Secretary and Board of Director',
+    position: 'General Secretary, Board of Director',
     socials: {
       name: 'email',
       link: 'mailto:Srishant@zohomail.in',
-    },
-  },
-  {
-    name: 'Ankit Kumar',
-    image: '13.jpeg',
-    position: 'Board Of Director',
-    socials: {
-      name: 'email',
-      link: 'mailto:Srishant@zohomail.in',
-    },
-  },
-  {
-    name: 'Anjali Prajapati',
-    image: '2.jpeg',
-    position: 'Head of Design',
-    socials: {
-      name: 'email',
-      link: 'mailto:anjaliiprajapati04@gmail.com',
     },
   },
   {
@@ -127,26 +109,9 @@ export const executives: ExecutiveProps[] = [
     },
   },
   {
-    name: 'Sourasnata Debnath',
-    image: '4.jpeg',
-    position: 'Head of Technical Content & Board of Directors',
-    socials: {
-      name: 'email',
-      link: 'mailto:debnathsourasnata@gmail.com',
-    },
-  },
-  {
-    name: 'Dipraj',
-    image: '15.jpeg',
-    position: 'board of director',
-    socials: {
-      name: 'email',
-      link: 'mailto:debnathsourasnata@gmail.com',
-    },
-  },{
     name: 'Sampurna mondal',
     image: '16.jpeg',
-    position: 'director of non-technical',
+    position: 'director of non-technical Operations',
     socials: {
       name: 'email',
       link: 'mailto:debnathsourasnata@gmail.com',
@@ -162,18 +127,28 @@ export const executives: ExecutiveProps[] = [
     },
   },
   {
-    name: 'Aemili',
-    image: '17.jpeg',
-    position: 'PR lead',
+    name: 'Anjali Prajapati',
+    image: '2.jpeg',
+    position: 'Head of Design',
     socials: {
       name: 'email',
-      link: 'mailto:ayushanand3008@gmail.com',
+      link: 'mailto:anjaliiprajapati04@gmail.com',
     },
   },
   {
-    name: 'Swaparup Mukherjee',
-    image: '18.jpeg',
-    position: 'Board of Director',
+    name: 'Sourasnata Debnath',
+    image: '4.jpeg',
+    position: 'Head of Technical Content, Board of Directors',
+    socials: {
+      name: 'email',
+      link: 'mailto:debnathsourasnata@gmail.com',
+    },
+  },
+
+  {
+    name: 'Aemili',
+    image: '17.jpeg',
+    position: 'PR lead',
     socials: {
       name: 'email',
       link: 'mailto:ayushanand3008@gmail.com',
@@ -188,6 +163,47 @@ export const executives: ExecutiveProps[] = [
       link: 'mailto:jhunjhunwalarinki@gmail.com',
     },
   },
+  {
+    name: 'Printi',
+    image: '10.jpeg',
+    position: 'Startup and Development Lead',
+    socials: {
+      name: 'email',
+      link: 'mailto:kumariprinti891@gmail.com',
+    },
+  },
+  {
+    name: 'Ankit Kumar',
+    image: '13.jpeg',
+    position: 'Board Of Director',
+    socials: {
+      name: 'email',
+      link: 'mailto:Srishant@zohomail.in',
+    },
+  },
+
+
+
+  {
+    name: 'Dipraj',
+    image: '15.jpeg',
+    position: 'board of director',
+    socials: {
+      name: 'email',
+      link: 'mailto:debnathsourasnata@gmail.com',
+    },
+  },
+
+  {
+    name: 'Swaparup Mukherjee',
+    image: '18.jpeg',
+    position: 'Board of Director',
+    socials: {
+      name: 'email',
+      link: 'mailto:ayushanand3008@gmail.com',
+    },
+  },
+
   {
     name: 'Kumar Anubhav',
     image: '19.jpeg',
@@ -207,19 +223,11 @@ export const executives: ExecutiveProps[] = [
     },
   },
 
-  {
-    name: 'Printi',
-    image: '10.jpeg',
-    position: 'Startup and Development Lead',
-    socials: {
-      name: 'email',
-      link: 'mailto:kumariprinti891@gmail.com',
-    },
-  },
+
 ];
 
 export const members: MemberProps[] = [
-  
+
   {
     name: 'Arghajyoti Malakar',
     team: 'design',
