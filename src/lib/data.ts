@@ -91,6 +91,24 @@ export const executives: ExecutiveProps[] = [
     },
   },
   {
+    name: 'Anshu Pal',
+    image: '14.jpeg',
+    position: 'General Secretary and Board of Director',
+    socials: {
+      name: 'email',
+      link: 'mailto:Srishant@zohomail.in',
+    },
+  },
+  {
+    name: 'Ankit Kumar',
+    image: '13.jpeg',
+    position: 'Board Of Director',
+    socials: {
+      name: 'email',
+      link: 'mailto:Srishant@zohomail.in',
+    },
+  },
+  {
     name: 'Anjali Prajapati',
     image: '2.jpeg',
     position: 'Head of Design',
@@ -118,6 +136,23 @@ export const executives: ExecutiveProps[] = [
     },
   },
   {
+    name: 'Dipraj',
+    image: '15.jpeg',
+    position: 'board of director',
+    socials: {
+      name: 'email',
+      link: 'mailto:debnathsourasnata@gmail.com',
+    },
+  },{
+    name: 'Sampurna mondal',
+    image: '16.jpeg',
+    position: 'director of non-technical',
+    socials: {
+      name: 'email',
+      link: 'mailto:debnathsourasnata@gmail.com',
+    },
+  },
+  {
     name: 'Ayush Anand',
     image: '5.jpeg',
     position: 'Financial Secretary',
@@ -126,11 +161,37 @@ export const executives: ExecutiveProps[] = [
       link: 'mailto:ayushanand3008@gmail.com',
     },
   },
-
+  {
+    name: 'Aemili',
+    image: '17.jpeg',
+    position: 'PR lead',
+    socials: {
+      name: 'email',
+      link: 'mailto:ayushanand3008@gmail.com',
+    },
+  },
+  {
+    name: 'Swaparup Mukherjee',
+    image: '18.jpeg',
+    position: 'Board of Director',
+    socials: {
+      name: 'email',
+      link: 'mailto:ayushanand3008@gmail.com',
+    },
+  },
   {
     name: 'Rinki Jhunjhunwala',
     image: '7.jpeg',
     position: 'Head of Alumni Affairs',
+    socials: {
+      name: 'email',
+      link: 'mailto:jhunjhunwalarinki@gmail.com',
+    },
+  },
+  {
+    name: 'Kumar Anubhav',
+    image: '19.jpeg',
+    position: 'Event Management Lead',
     socials: {
       name: 'email',
       link: 'mailto:jhunjhunwalarinki@gmail.com',
@@ -267,6 +328,16 @@ export const members: MemberProps[] = [
     socials: {
       name: 'email',
       link: 'mailto:ratnadipdas2005@gmail.com',
+    },
+  },
+  {
+    name: 'Madhuparna Biswas',
+    team: 'design',
+    position: 'Senior Core Design Member',
+    image: '18.jpeg',
+    socials: {
+      name: 'email',
+      link: 'mailto:madhuparnabiswas06@gmail.com',
     },
   },
   {
