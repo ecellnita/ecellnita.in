@@ -111,7 +111,7 @@ export const executives: ExecutiveProps[] = [
   {
     name: 'Sampurna mondal',
     image: '16.jpeg',
-    position: 'director of non-technical Operations',
+    position: 'Director Of Non-Technical Operations',
     socials: {
       name: 'email',
       link: 'mailto:debnathsourasnata@gmail.com',
@@ -187,7 +187,7 @@ export const executives: ExecutiveProps[] = [
   {
     name: 'Dipraj',
     image: '15.jpeg',
-    position: 'board of director',
+    position: 'Board Of Director',
     socials: {
       name: 'email',
       link: 'mailto:debnathsourasnata@gmail.com',
