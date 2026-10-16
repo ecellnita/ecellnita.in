@@ -6,11 +6,17 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 
 function BlogPage() {
+
   const { blogId } = useParams();
+
+
   console.log('first: ', blogId);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  
   const blogs = [
     {
       id: 1,

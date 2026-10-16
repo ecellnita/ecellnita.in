@@ -15,7 +15,7 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ id, image, title, content, author, date }: BlogCardProps) => {
-  const router = useRouter();
+  const router  = useRouter();
 
   const handleClick = () => {
     router.push(`/blogs/${id}`);

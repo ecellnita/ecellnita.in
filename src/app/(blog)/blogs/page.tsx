@@ -12,7 +12,7 @@ function page() {
           <h1 className='font-playfair text-4xl font-bold text-white sm:text-5xl md:text-6xl'>
             The
           </h1>
-          <h1 className='font-playfair text-4xl font-bold text-pink-500 sm:text-5xl md:text-6xl'>
+          <h1 className='font-playfair title-gradient text-4xl font-bold text-pink-500 sm:text-5xl md:text-6xl'>
             Entrepreneurial
           </h1>
           <h1 className='font-playfair text-4xl font-bold text-white sm:text-5xl md:text-6xl'>
