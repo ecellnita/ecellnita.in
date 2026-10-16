@@ -119,7 +119,7 @@ export const blogs: Blog[] = [
     image: '',
     title: 'The Startup That Should Never Have Existed',
     excerpt: "Why a brilliant idea doesn't always translate into a viable business.",
-    author: 'Kajal Kumari',
+    author: 'Arghajyoti Malakar',
     date: '2026-09-17',
     content: [
       { type: 'bold', text: "Why a brilliant idea doesn't always translate into a viable business" },

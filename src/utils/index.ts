@@ -24,16 +24,20 @@ export function getOrdinal(n: number): string {
 
 export function formatBlogDate(dateStr: string): string {
   if (!dateStr) return '';
-  const datePart = dateStr.includes('T') ? dateStr.split('T')[0] : dateStr;
+  const datePart = (dateStr.includes('T') ? dateStr.split('T')[0] : dateStr) ?? '';
   const parts = datePart.split('-');
 
-  if (parts.length !== 3) {
+  const yearStr = parts[0];
+  const monthStr = parts[1];
+  const dayStr = parts[2];
+
+  if (!yearStr || !monthStr || !dayStr) {
     return dateStr;
   }
 
-  const year = parseInt(parts[0], 10);
-  const month = parseInt(parts[1], 10) - 1;
-  const day = parseInt(parts[2], 10);
+  const year = parseInt(yearStr, 10);
+  const month = parseInt(monthStr, 10) - 1;
+  const day = parseInt(dayStr, 10);
 
   if (isNaN(year) || isNaN(month) || isNaN(day)) {
     return dateStr;
@@ -57,8 +61,8 @@ export function formatBlogDate(dateStr: string): string {
     'Dec',
   ];
 
-  const weekday = daysOfWeek[date.getDay()];
-  const monthName = months[date.getMonth()];
+  const weekday = daysOfWeek[date.getDay()] ?? '';
+  const monthName = months[date.getMonth()] ?? '';
 
   return `${weekday}, ${getOrdinal(day)} ${monthName}, ${year}`;
 }

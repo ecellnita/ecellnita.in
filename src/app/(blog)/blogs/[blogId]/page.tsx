@@ -12,6 +12,7 @@ import { blogs } from '~/data/blogs';
 import BlogContent from '~/components/Blog/BlogContent';
 
 import EventsHeaderImage from '~/assets/events-header.svg';
+import { formatBlogDate } from '~/utils';
 
 function BlogPage() {
   const { blogId } = useParams();
@@ -46,7 +47,7 @@ function BlogPage() {
               By <span className='font-medium text-white'>{blog.author}</span>
             </span>
             <span>|</span>
-            <span>Published on {blog.date}</span>
+            <span>Published on {formatBlogDate(blog.date)}</span>
           </div>
           {blog.image ? (
             <Image
