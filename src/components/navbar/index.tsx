@@ -16,12 +16,10 @@ const navLinks = [
   { label: 'Blogs',        href: '/blogs' },
   { label: 'About',        href: '#about' },
   { label: 'Events',       href: '/events' },
-  { label: 'StartupKumbh', href: '/startupkumbh' },
   { label: 'Team',         href: '/team' },
   { label: 'Contact',      href: '#contact' },
 ];
 
-const PAGE_ROUTES = new Set(['/', '/blogs', '/events', '/startupkumbh', '/team']);
 
 const Navbar = () => {
   const pathname = usePathname();
