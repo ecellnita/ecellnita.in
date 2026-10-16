@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
-import { useScrollbar } from '@14islands/r3f-scroll-rig';
 import { AnimatePresence, type Variants, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -12,80 +12,67 @@ import Logo from '../Logo';
 import { Button } from '../ui/button';
 
 const navLinks = [
-  {
-    label: 'Home',
-    href: '/',
-  },
-  {
-    label: 'Blogs',
-    href: '/blogs',
-  },
-  {
-    label: 'About',
-    href: '#about',
-  },
-  {
-    label: 'Events',
-    href: '/events',
-  },
-  {
-    label: 'StartupKumbh',
-    href: '/startupkumbh',
-  },
-  {
-    label: 'Team',
-    href: '/team',
-  },
-
-  {
-    label: 'Contact',
-    href: '#contact',
-  },
+  { label: 'Home',         href: '/' },
+  { label: 'Blogs',        href: '/blogs' },
+  { label: 'About',        href: '#about' },
+  { label: 'Events',       href: '/events' },
+  { label: 'StartupKumbh', href: '/startupkumbh' },
+  { label: 'Team',         href: '/team' },
+  { label: 'Contact',      href: '#contact' },
 ];
 
+const PAGE_ROUTES = new Set(['/', '/blogs', '/events', '/startupkumbh', '/team']);
+
 const Navbar = () => {
-  const { scrollTo } = useScrollbar();
   const pathname = usePathname();
-  const router = useRouter();
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const navItemVariants: Variants = {
-    initial: {
-      opacity: 0,
-      y: 20,
-    },
+    initial: { opacity: 0, y: 20 },
     animate: {
       opacity: 1,
       y: 0,
-      transition: {
-        staggerDirection: 1,
-        staggerChildren: 0.1,
-        ease: 'anticipate',
-      },
+      transition: { staggerDirection: 1, staggerChildren: 0.1, ease: 'anticipate' },
     },
   };
 
-  const onClick = (link: (typeof navLinks)[number]) => {
-    if (link.href === '/' && pathname === '/') {
-      scrollTo('#hero');
-      setIsOpen(false);
-      return;
-    }
-    if (link.href.startsWith('http')) {
-      window.location.href = link.href;
-      setIsOpen(false);
-      return;
-    }
-    if (link.href.startsWith('#')) {
-      if (pathname === '/') {
-        scrollTo(link.href);
-      } else {
-        router.push(`/${link.href}`);
-      }
+  const scrollToHash = (hash: string) => {
+    if (pathname === '/') {
+      document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      router.push(link.href);
+      // Navigate home first, then the hash will be handled by the browser
+      window.location.href = `/${hash}`;
     }
+  };
+
+  const handleHashClick = (hash: string) => {
     setIsOpen(false);
+    scrollToHash(hash);
+  };
+
+  const renderLink = (link: (typeof navLinks)[number]) => {
+    const isHash = link.href.startsWith('#');
+
+    if (isHash) {
+      return (
+        <Button
+          key={link.label}
+          variant='nav'
+          className='transition-all ease-in'
+          onClick={() => handleHashClick(link.href)}
+        >
+          {link.label}
+        </Button>
+      );
+    }
+
+    return (
+      <Link key={link.label} href={link.href} prefetch onClick={() => setIsOpen(false)}>
+        <Button variant='nav' className='transition-all ease-in'>
+          {link.label}
+        </Button>
+      </Link>
+    );
   };
 
   return (
@@ -99,42 +86,22 @@ const Navbar = () => {
           className='flex w-full flex-row items-center justify-between py-2'
           layout='preserve-aspect'
         >
-          <Logo
-            size={24}
-            fill='#000'
-            className='cursor-pointer'
-            onClick={() =>
-              onClick({
-                label: 'Home',
-                href: '/',
-              })
-            }
-          />
+          <Link href='/' prefetch onClick={() => setIsOpen(false)}>
+            <Logo size={24} fill='#000' className='cursor-pointer' />
+          </Link>
 
           <div className='hidden w-full max-w-2xl flex-row items-center gap-2 md:flex lg:gap-4'>
-            {navLinks.map((link) => (
-              <Button
-                key={link.label}
-                variant='nav'
-                className='transition-all ease-in'
-                onClick={() => onClick(link)}
-              >
-                {link.label}
-              </Button>
-            ))}
+            {navLinks.map(renderLink)}
           </div>
+
           <Button
             variant='primary'
             className='hidden sm:flex'
-            onClick={() =>
-              onClick({
-                label: 'About',
-                href: '#about',
-              })
-            }
+            onClick={() => handleHashClick('#about')}
           >
             Get Started
           </Button>
+
           <Button
             size='icon'
             variant='link'
@@ -148,6 +115,7 @@ const Navbar = () => {
             )}
           </Button>
         </motion.div>
+
         <AnimatePresence mode='wait'>
           {isOpen && (
             <motion.div
@@ -165,19 +133,24 @@ const Navbar = () => {
                   exit={{
                     opacity: 0,
                     y: -20,
-                    transition: {
-                      delay: 0.1 * index,
-                      ease: 'anticipate',
-                    },
+                    transition: { delay: 0.1 * index, ease: 'anticipate' },
                   }}
                 >
-                  <Button
-                    variant='nav'
-                    className='w-full transition-all ease-in'
-                    onClick={() => onClick(link)}
-                  >
-                    {link.label}
-                  </Button>
+                  {link.href.startsWith('#') ? (
+                    <Button
+                      variant='nav'
+                      className='w-full transition-all ease-in'
+                      onClick={() => handleHashClick(link.href)}
+                    >
+                      {link.label}
+                    </Button>
+                  ) : (
+                    <Link href={link.href} prefetch onClick={() => setIsOpen(false)}>
+                      <Button variant='nav' className='w-full transition-all ease-in'>
+                        {link.label}
+                      </Button>
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </motion.div>

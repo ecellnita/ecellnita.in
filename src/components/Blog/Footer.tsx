@@ -3,7 +3,7 @@ import { Instagram, Twitter, Youtube, Facebook, Linkedin} from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 bg-opacity-50 text-white my-2 py-4">
+    <footer className="my-2 border-t border-[#2a2f58] bg-[#0a0f2f66] py-6 text-[#d6dbff] backdrop-blur-sm">
       <div className="container mx-auto text-center">
         <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
         <div className="flex justify-center space-x-6 mb-4">
