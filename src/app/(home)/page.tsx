@@ -26,7 +26,7 @@ const Home = () => {
           <Lights />
         </div>
       </div>
-      <div className='relative min-h-screen overflow-y-hidden text-center sm:h-screen'>
+      <div className='relative overflow-y-hidden pb-16 text-center sm:h-screen sm:pb-0'>
         <div
           className='absolute top-0 overflow-y-hidden'
           style={{
