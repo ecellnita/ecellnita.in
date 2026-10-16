@@ -4,7 +4,7 @@ export const blogs: Blog[] = [
   // ── NEW SERIES: Beyond the Startup Hype ───────────────────────────────────
   {
     id: 4,
-    image: '/blogs/the_art_of_failing',
+    image: '/blogs/the_art_of_failing.png',
     title: 'The Art of Failing Forward: Life After a Startup Fails',
     excerpt: "Why the end of a startup doesn't have to mean the end of an entrepreneur.",
     author: 'Kajal Kumari',
@@ -39,7 +39,7 @@ export const blogs: Blog[] = [
   },
   {
     id: 3,
-    image: '',
+    image: '/blogs/when_growth_become_trap.png',
     title: 'When Growth Becomes a Trap: The Dark Side of Scaling',
     excerpt: "How the pursuit of rapid growth can threaten a startup's survival.",
     author: 'Himanshu Patidar',
@@ -80,7 +80,7 @@ export const blogs: Blog[] = [
   },
   {
     id: 2,
-    image: '',
+    image: '/blogs/the_price_of_dream.png',
     title: 'The Price of the Dream: What Entrepreneurship Takes Away',
     excerpt: 'The hidden personal, emotional, and professional costs of building a startup.',
     author: 'Nancy Bajpai',
@@ -116,7 +116,7 @@ export const blogs: Blog[] = [
   },
   {
     id: 1,
-    image: '',
+    image: '/blogs/the_startup_that_should.png',
     title: 'The Startup That Should Never Have Existed',
     excerpt: "Why a brilliant idea doesn't always translate into a viable business.",
     author: 'Arghajyoti Malakar',
