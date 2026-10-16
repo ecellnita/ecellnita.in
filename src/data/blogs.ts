@@ -4,7 +4,7 @@ export const blogs: Blog[] = [
   // ── NEW SERIES: Beyond the Startup Hype ───────────────────────────────────
   {
     id: 4,
-    image: '',
+    image: '/blogs/the_art_of_failing',
     title: 'The Art of Failing Forward: Life After a Startup Fails',
     excerpt: "Why the end of a startup doesn't have to mean the end of an entrepreneur.",
     author: 'Kajal Kumari',
