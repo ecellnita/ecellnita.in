@@ -9,20 +9,20 @@ function page() {
     <div className='mt-36'>
       <div>
         <div className='mt-2 flex flex-col items-center justify-center gap-3 pt-4 text-center md:flex-row'>
-          <h1 className='font-playfair text-4xl font-bold text-white sm:text-5xl md:text-6xl'>
+          <h1 className='font-sans text-4xl font-bold text-white sm:text-5xl md:text-6xl'>
             The
           </h1>
-          <h1 className='font-playfair title-gradient text-4xl font-bold text-pink-500 sm:text-5xl md:text-6xl'>
+          <h1 className='font-sans title-gradient text-4xl font-bold text-pink-500 sm:text-5xl md:text-6xl'>
             Entrepreneurial
           </h1>
-          <h1 className='font-playfair text-4xl font-bold text-white sm:text-5xl md:text-6xl'>
+          <h1 className='font-sans text-4xl font-bold text-white sm:text-5xl md:text-6xl'>
             Horizon
           </h1>
         </div>
-        <h2 className='mx-auto max-w-screen-lg p-4 text-center font-serif text-3xl leading-relaxed text-white'>
+        <h2 className='mx-auto max-w-screen-lg p-4 text-center font-sans text-3xl leading-relaxed text-white'>
           &quot;Inspiring Ideas, Stories, and Strategies for Tomorrow&apos;s Leaders.&quot;
         </h2>
-        <p className=' mx-auto max-w-screen-lg p-4 text-center font-serif text-lg leading-relaxed text-white'>
+        <p className=' mx-auto max-w-screen-lg p-4 text-center font-sans text-lg leading-relaxed text-white'>
           The Entrepreneurial Horizon is your gateway to exploring the limitless
           possibilities of innovation and enterprise. With a focus on inspiring
           stories, insightful analyses, and actionable advice, this blog
@@ -43,7 +43,7 @@ function page() {
             Us
           </h1>
         </div>
-        <p className='mx-auto max-w-screen-lg p-4 text-center font-serif text-lg leading-relaxed'>
+        <p className='mx-auto max-w-screen-lg p-4 text-center font-sans text-lg leading-relaxed'>
           Entrepreneurship Cell NIT Agartala is a voluntary organization
           dedicated to encouraging a thriving start-up culture and building an
           entrepreneurial environment. We take great pride in organizing a
@@ -73,13 +73,13 @@ function page() {
             Us
           </h1>
         </div>
-        <p className='text-center font-serif text-lg leading-relaxed'>
+        <p className='text-center font-sans text-lg leading-relaxed'>
           E-mail: <a href='https://www.gmail.com'>ecellnita@gmail.com</a>
         </p>
-        <p className='text-center font-serif text-lg leading-relaxed'>
+        <p className='text-center font-sans text-lg leading-relaxed'>
           Phone: +91 6234 567890
         </p>
-        <p className='text-center font-serif text-lg leading-relaxed'>
+        <p className='text-center font-sans text-lg leading-relaxed'>
           Address: National Institute of Technology Agartala Jirania , West
           Tripura Pin - 799046
         </p>
