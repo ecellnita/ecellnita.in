@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { type Blog } from '~/types/blog';
+import { formatBlogDate } from '~/utils';
 
 type BlogCardProps = Pick<Blog, 'id' | 'image' | 'title' | 'excerpt' | 'author' | 'date'>;
 
@@ -31,7 +32,7 @@ const BlogCard = ({ id, image, title, excerpt, author, date }: BlogCardProps) =>
             <span>
               By <span className='font-medium text-[#a0a4d0]'>{author}</span>
             </span>
-            <span>{date}</span>
+            <span>{formatBlogDate(date)}</span>
           </div>
         </div>
       </div>

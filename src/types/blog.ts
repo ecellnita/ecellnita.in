@@ -15,5 +15,5 @@ export interface Blog {
   excerpt: string;
   content: ContentBlock[];
   author: string;
-  date: string;
+  date: string; // ISO format date string (e.g. 'YYYY-MM-DD' or 'YYYY-MM-DDTHH:mm:ss.sssZ')
 }

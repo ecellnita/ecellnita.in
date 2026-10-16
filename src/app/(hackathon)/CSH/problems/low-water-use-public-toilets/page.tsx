@@ -90,12 +90,6 @@ function Page() {
                   </p>
                 </div>
               </div>
-              <button
-                className='rounded-lg bg-white px-4 py-2 font-semibold text-gray-700 z-10'
-                onClick={() => router.push('/CSH/login')}
-              >
-                Login now
-              </button>
             </div>
           </div>
         </div>

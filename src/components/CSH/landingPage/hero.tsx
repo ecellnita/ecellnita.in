@@ -30,12 +30,6 @@ export default function Hero() {
           </p>
           <div className='flex justify-start'>
             <button
-              className='rounded-lg bg-white px-4 py-2 font-semibold text-gray-700 z-10'
-              onClick={() => router.push('/CSH/registration')}
-            >
-              Register Now
-            </button>
-            <button
               className='rounded-lg bg-white px-4 py-2 font-semibold text-gray-700 ml-4 z-10'
               onClick={() => saveAs("/CSH/RulebookCSH.pdf", "RulebookCHS.pdf")}
             >
