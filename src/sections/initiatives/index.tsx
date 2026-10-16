@@ -26,9 +26,12 @@ export const TracingBeam = ({
   const [svgHeight, setSvgHeight] = useState(0);
 
   useEffect(() => {
-    if (contentRef.current) {
-      setSvgHeight(contentRef.current.offsetHeight);
-    }
+    const el = contentRef.current;
+    if (!el) return;
+    setSvgHeight(el.offsetHeight);
+    const ro = new ResizeObserver(() => setSvgHeight(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
   }, []);
 
   const y1 = useSpring(
